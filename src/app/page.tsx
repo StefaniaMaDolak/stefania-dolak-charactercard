@@ -1,11 +1,54 @@
 "use client";
 
-import SaveContactButton from "@/components/SaveContactButton";
-
 export default function Home() {
+  const handleShareQR = async () => {
+    try {
+      // QR-Code Bild holen
+      const response = await fetch("/api/qr");
+      const svgBlob = await response.blob();
+
+      // In PNG konvertieren für Sharing
+      const img = new Image();
+      const url = URL.createObjectURL(svgBlob);
+      img.src = url;
+
+      await new Promise((resolve) => { img.onload = resolve; });
+
+      const canvas = document.createElement("canvas");
+      canvas.width = 400;
+      canvas.height = 400;
+      const ctx = canvas.getContext("2d");
+      if (ctx) {
+        ctx.fillStyle = "white";
+        ctx.fillRect(0, 0, 400, 400);
+        ctx.drawImage(img, 0, 0, 400, 400);
+      }
+
+      const pngBlob = await new Promise<Blob>((resolve) => {
+        canvas.toBlob((b) => resolve(b!), "image/png");
+      });
+
+      URL.revokeObjectURL(url);
+
+      const file = new File([pngBlob], "stefania-dolak-ccq.png", {
+        type: "image/png",
+      });
+
+      if (navigator.canShare && navigator.canShare({ files: [file] })) {
+        await navigator.share({
+          files: [file],
+          title: "Stefania Dolak — CCQ Charactercard",
+          text: "Scanne den QR-Code oder öffne die Seite:",
+        });
+      }
+    } catch (err) {
+      console.log("Share abgebrochen:", err);
+    }
+  };
+
   return (
     <main className="min-h-screen bg-white text-black">
-      {/* CCQ / CHARACTERCARD — Links oben */}
+      {/* CCQ / CHARACTERCARD — Links oben dezent */}
       <div className="absolute top-4 left-4 z-10">
         <p className="text-xs font-bold tracking-widest text-gray-400 uppercase">CCQ / CHARACTERCARD</p>
       </div>
@@ -111,7 +154,7 @@ export default function Home() {
             </div>
           </div>
 
-          {/* Buttons statt Text */}
+          {/* Buttons */}
           <div className="text-center space-y-3">
             <a
               href="mailto:stefania.dolak@mail.ch?subject=Termin%20vereinbaren"
@@ -153,29 +196,40 @@ export default function Home() {
         </div>
       </section>
 
-      {/* KONTAKT */}
+      {/* QR-CODE KONTAKT */}
       <section className="py-16 px-4">
         <div className="max-w-2xl mx-auto text-center">
           <h2 className="text-2xl font-bold mb-4">Kontakt</h2>
-          <p className="text-gray-600 mb-8">Speichere mich direkt in deinem Telefon.</p>
-          <SaveContactButton />
+          <p className="text-gray-600 mb-8">Scanne den QR-Code — oder tippe drauf, um die Seite zu teilen.</p>
+
+          {/* QR-Code Bild */}
+          <div className="inline-block p-6 bg-white border-2 border-gray-200 rounded-xl shadow-sm">
+            <img
+              src="/api/qr"
+              alt="QR-Code zu Stefania Dolak Charactercard"
+              className="w-64 h-64 cursor-pointer hover:scale-105 transition"
+              onClick={handleShareQR}
+            />
+          </div>
+
+          <p className="text-sm text-gray-400 mt-4">Tipp auf den QR-Code, um die Seite zu teilen.</p>
+
           <div className="mt-8 space-y-2 text-sm text-gray-500">
             <p>📧 stefania.dolak@mail.ch</p>
           </div>
         </div>
       </section>
 
-      {/* CCQ WERBUNG — Am Ende jeder personalisierten CCQ */}
-      <section className="py-12 px-4 bg-black text-white">
+      {/* CCQ WERBUNG — Dezent, hellgrau, am Ende jeder CCQ */}
+      <section className="py-8 px-4 bg-gray-100">
         <div className="max-w-2xl mx-auto text-center">
-          <p className="text-xs font-bold tracking-widest text-gray-400 uppercase mb-2">CCQ / CHARACTERCARD</p>
-          <h2 className="text-2xl font-bold mb-2">Deine Karte. Dein Charakter.</h2>
-          <p className="text-gray-300 italic">„Erkannt werden für das, was wirklich zählt."</p>
+          <p className="text-xs font-bold tracking-widest text-gray-400 uppercase mb-1">CCQ / CHARACTERCARD</p>
+          <p className="text-sm text-gray-500">Deine Karte. Dein Charakter. — Erkannt werden für das, was wirklich zählt.</p>
         </div>
       </section>
 
       <footer className="py-6 px-4 text-center text-sm text-gray-400">
-        <p>© 2026 CCQ Charactercard · Erkannt werden für das, was wirklich zählt.</p>
+        <p>© 2026 Stefania Dolak · Erkannt werden für das, was wirklich zählt.</p>
       </footer>
     </main>
   );
