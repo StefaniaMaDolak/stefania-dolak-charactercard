@@ -5,30 +5,24 @@ import SaveContactButton from "@/components/SaveContactButton";
 export default function Home() {
   return (
     <main className="min-h-screen bg-white text-black">
+      {/* CCQ / CHARACTERCARD — Links oben */}
+      <div className="absolute top-4 left-4 z-10">
+        <p className="text-xs font-bold tracking-widest text-gray-400 uppercase">CCQ / CHARACTERCARD</p>
+      </div>
+
       {/* HERO */}
-      <section className="bg-black text-white py-16 px-4">
+      <section className="bg-black text-white py-16 px-4 pt-20">
         <div className="max-w-2xl mx-auto text-center">
-          <div className="w-32 h-32 mx-auto mb-6 rounded-full overflow-hidden border-4 border-white/20">
-            <img src="/logo.jpg" alt="Stefania Dolak" className="w-full h-full object-cover" />
+          {/* Bild-Platzhalter */}
+          <div className="w-32 h-32 mx-auto mb-6 rounded-full bg-gray-700 flex items-center justify-center">
+            <span className="text-gray-400 text-sm">Bild</span>
           </div>
           <h1 className="text-4xl md:text-5xl font-bold mb-2">Stefania Dolak</h1>
           <p className="text-xl text-gray-300 mb-4">VA für Kommunikationsmanagement</p>
-          <p className="text-sm text-gray-400 max-w-md mx-auto">
-            Erkannt werden für das was wirklich zählt · Van-Life · Remote · CCQ
-          </p>
         </div>
       </section>
 
-      {/* CCQ / CHARACTERCARD */}
-      <section className="py-12 px-4 border-b border-gray-100">
-        <div className="max-w-2xl mx-auto text-center mb-8">
-          <h2 className="text-sm font-bold tracking-widest text-gray-400 uppercase mb-2">CCQ / CHARACTERCARD</h2>
-          <p className="text-lg font-medium text-gray-800">Deine Karte. Dein Charakter.</p>
-          <p className="text-gray-500 italic mt-2">„Erkannt werden für das, was wirklich zählt."</p>
-        </div>
-      </section>
-
-      {/* PROFIL — Kommunikation */}
+      {/* PROFIL */}
       <section className="py-12 px-4 border-b border-gray-100">
         <div className="max-w-2xl mx-auto space-y-6 text-gray-700 leading-relaxed">
           <h2 className="text-2xl font-bold text-center mb-6">Profil</h2>
@@ -84,7 +78,7 @@ export default function Home() {
       <section className="py-12 px-4 border-b border-gray-100">
         <div className="max-w-2xl mx-auto">
           <h2 className="text-2xl font-bold text-center mb-6">Hintergrund</h2>
-          <div className="space-y-4">
+          <div className="space-y-4 mb-8">
             <div className="flex gap-4">
               <div className="w-20 text-right text-sm font-bold text-gray-400 pt-1">Ab 2014</div>
               <div className="flex-1 text-gray-700">10 Jahre kaufmännisch & medizinisch im Bereich Kundenkontakt und Organisations- sowie Verwaltungsmanagement</div>
@@ -99,8 +93,24 @@ export default function Home() {
             </div>
             <div className="flex gap-4">
               <div className="w-20 text-right text-sm font-bold text-gray-400 pt-1">Ab 2025</div>
-              <div className="flex-1 text-gray-700">Selbständig mit Fokus auf Schulungsentwicklung im Bereich Resilienz & Kommunikation. Als Assistenz über mehrere Jahre und auch heute virtuell für Sie erreichbar. Mit dem Wissen, dass das Wissen nie an einer Stelle stehen bleibt.</div>
+              <div className="flex-1 text-gray-700">Selbständig mit Fokus auf Schulungsentwicklung im Bereich Resilienz & Kommunikation</div>
             </div>
+          </div>
+
+          {/* Buttons statt Text */}
+          <div className="text-center space-y-3">
+            <a
+              href="mailto:stefania.dolak@mail.ch?subject=Termin%20vereinbaren"
+              className="inline-block bg-black text-white px-8 py-3 rounded-full font-medium hover:bg-gray-800 transition"
+            >
+              Als Assistenz über mehrere Jahre und auch heute virtuell für Sie erreichbar. Mit dem Wissen, dass das Wissen nie an einer Stelle stehen bleibt.
+            </a>
+            <a
+              href="mailto:stefania.dolak@mail.ch?subject=Gespr%C3%A4ch%20vereinbaren"
+              className="inline-block border-2 border-black text-black px-8 py-3 rounded-full font-medium hover:bg-black hover:text-white transition"
+            >
+              Gespräch vereinbaren
+            </a>
           </div>
         </div>
       </section>
@@ -129,14 +139,22 @@ export default function Home() {
           <p className="text-gray-600 mb-8">Speichere mich direkt in deinem Telefon.</p>
           <SaveContactButton />
           <div className="mt-8 space-y-2 text-sm text-gray-500">
-            <p>📧 koordination.sdolak@gmail.com</p>
-            <p>🌐 ccq-produktseite.vercel.app</p>
+            <p>📧 stefania.dolak@mail.ch</p>
           </div>
         </div>
       </section>
 
+      {/* CCQ WERBUNG — Am Ende jeder personalisierten CCQ */}
+      <section className="py-12 px-4 bg-black text-white">
+        <div className="max-w-2xl mx-auto text-center">
+          <p className="text-xs font-bold tracking-widest text-gray-400 uppercase mb-2">CCQ / CHARACTERCARD</p>
+          <h2 className="text-2xl font-bold mb-2">Deine Karte. Dein Charakter.</h2>
+          <p className="text-gray-300 italic">„Erkannt werden für das, was wirklich zählt."</p>
+        </div>
+      </section>
+
       <footer className="py-6 px-4 text-center text-sm text-gray-400">
-        <p>© 2026 Stefania Dolak · Erkannt werden für das, was wirklich zählt.</p>
+        <p>© 2026 CCQ Charactercard · Erkannt werden für das, was wirklich zählt.</p>
       </footer>
     </main>
   );
