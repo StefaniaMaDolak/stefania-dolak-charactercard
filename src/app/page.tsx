@@ -43,6 +43,13 @@ export default function Home() {
 
           <p className="font-bold text-lg text-center pt-2">Dieses Bedürfnis ist meine Motivation.</p>
         </div>
+
+        {/* BILD-SLOT 1 */}
+        <div className="max-w-2xl mx-auto mt-8">
+          <div className="w-full h-64 bg-gray-200 rounded-lg flex items-center justify-center">
+            <span className="text-gray-400">Bild</span>
+          </div>
+        </div>
       </section>
 
       {/* ANGEBOT */}
@@ -71,6 +78,13 @@ export default function Home() {
               </div>
             ))}
           </div>
+
+        {/* BILD-SLOT 2 */}
+        <div className="mt-8">
+          <div className="w-full h-64 bg-gray-200 rounded-lg flex items-center justify-center">
+            <span className="text-gray-400">Bild</span>
+          </div>
+        </div>
         </div>
       </section>
 
@@ -129,6 +143,13 @@ export default function Home() {
           <p>Ich bleibe nicht Jahre in einem Bereich um ihn blind auswendig zu können. Ich wechsle die Perspektive – um den Blick für das ganze System zu behalten. Denn wer mehrere Seiten kennt, denkt vernetzter.</p>
 
           <p className="italic text-gray-500">Um es in meiner Tanzsprache zu sagen: Warum jahrelang nur einen Tanzstil lernen – wenn ein anderer Stil dir beibringt wie man führt und sich führen lässt? Skills die auf jeden Tanz – und jede Zusammenarbeit – anwendbar sind.</p>
+        </div>
+
+        {/* BILD-SLOT 3 */}
+        <div className="max-w-2xl mx-auto mt-8">
+          <div className="w-full h-64 bg-gray-200 rounded-lg flex items-center justify-center">
+            <span className="text-gray-400">Bild</span>
+          </div>
         </div>
       </section>
 
