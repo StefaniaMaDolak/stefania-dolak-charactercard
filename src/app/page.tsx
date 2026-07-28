@@ -21,79 +21,97 @@ export default function Home() {
 
       {/* PROFIL */}
       <section className="py-12 px-4 border-b border-gray-100">
+        <div className="max-w-2xl mx-auto space-y-6 text-gray-700 leading-relaxed">
+          <h2 className="text-2xl font-bold text-center mb-6">Profil</h2>
+          <p>Kommunikation verbindet. Kommunikation ist viel mehr – denn sie ist überall.</p>
+          <p>In einem Jahrzehnt im Kundenkontakt und in der Mitarbeiterbetreuung lernte ich: Kommunikation ist nicht nur direkter Kontakt – sie ist auch die Art wie man sich präsentiert. Kommunikation geschieht auch durch Bilder – weshalb mich Mediendesign seit Jahren begleitet.</p>
+          <p>Gleichzeitig spielt Psychologie eine zentrale Rolle – denn nur wer versteht welche Bedürfnisse, Persönlichkeiten, Einschränkungen und Besonderheiten auf jeder Seite stehen, kann Kommunikation wirklich anpassen. Nur dieses tiefgehende Wissen macht Kommunikation wirklich erreichbar – für eine Zielgruppe, individuell oder für jeden.</p>
+          <p>Doch Menschlichkeit, Feinfühligkeit oder Empathie ist heute leider nicht alleine tragbar – es tut mir leid aber es ist die Wahrheit die keiner ausspricht. Weil Wissen mit der Zeit geht, kam die Technik hinzu – und gerade sie hat vieles zerstört. Weshalb ich mir gezielt technisches Know-how aneignete – in IT, Programmen, Darstellungen und dem Wissen von heute und morgen – um die Technik so zu nutzen dass das Wesentliche, was normalerweise untergeht, endlich sichtbar wird.</p>
+          <p>Das alles ist nicht getrennt – sondern wichtig miteinander zu verknüpfen. Wissen ist Macht – aber wertlos wenn es nicht richtig eingepflegt, verwaltet und gespeichert wird, um es so zu verändern dass es den grössten Erfolg bringt.</p>
+          <p>Erfolg ist für jeden Menschen, jeden Betrieb, jedes Unternehmen etwas anderes. Doch so unterschiedlich jeder sein mag – am Ende geht es immer darum: das Richtige festhalten, es verstehen, verbessern und dann mutig loslegen. Nicht weil wir nicht gut genug sind – sondern weil wir die beste Version von uns und dem was wir aufgebaut haben leben wollen.</p>
+          <p>Ein Bedürfnis das jeder in sich trägt: verstanden werden. Gesehen werden.</p>
+          <p className="font-bold text-lg text-center pt-2">Dieses Bedürfnis ist meine Motivation.</p>
+        </div>
+      </section>
+
+      {/* ANGEBOT */}
+      <section className="py-12 px-4 border-b border-gray-100 bg-gray-50">
         <div className="max-w-2xl mx-auto">
-          <h2 className="text-2xl font-bold mb-6 text-center">Profil</h2>
-          <div className="space-y-4 text-gray-700">
-            <p>Ich bin Stefania — eine hochsensible, detailverliebte Frau, die ihre Stärken in Struktur, Empathie und visuelles Denken in den Dienst anderer stellt.</p>
-            <p>Derzeit arbeite ich als Remote-VA (Virtual Assistant) für Kommunikationsmanagement. Parallel baue ich mit meinem KI-Assistenten Hermes mein eigenes Produkt: <strong>CCQ Charactercard</strong> — die digitale Visitenkarte, die im Telefon lebt.</p>
-            <p>Mein Weg: Kurzfristig professionelle VA-Dienstleistungen, langfristig CCQ als eigenes Format für Selbstständige, Gastronomen und Praxen.</p>
+          <h2 className="text-2xl font-bold text-center mb-6">Angebot</h2>
+          <p className="text-gray-700 text-center mb-8">
+            Mein Angebot vereint drei Ebenen: Verwaltung · Psychologie · Systemik
+            <br />
+            <span className="text-sm text-gray-500">Weil Struktur allein nicht reicht. Weil Menschen keine Prozesse sind. Und weil alles miteinander zusammenhängt.</span>
+          </p>
+          <div className="space-y-3">
+            {[
+              "Kundenservice",
+              "Mitarbeiterbetreuung",
+              "Projektanalyse & Changemanagement",
+              "Webseitenanalyse & -erstellung",
+              "CharacterCard Anpassung",
+            ].map((item) => (
+              <div key={item} className="bg-white border border-gray-200 rounded-lg p-4 text-center font-medium text-gray-700">
+                {item}
+              </div>
+            ))}
+          </div>
+          <p className="text-center text-sm text-gray-500 mt-4">Ich arbeite stundenbasiert.</p>
+        </div>
+      </section>
+
+      {/* HINTERGRUND */}
+      <section className="py-12 px-4 border-b border-gray-100">
+        <div className="max-w-2xl mx-auto">
+          <h2 className="text-2xl font-bold text-center mb-6">Hintergrund</h2>
+          <div className="space-y-4">
+            <div className="flex gap-4">
+              <div className="w-20 text-right text-sm font-bold text-gray-400 pt-1">2014</div>
+              <div className="flex-1 text-gray-700">10 Jahre kaufmännisch & medizinisch im Bereich Kundenkontakt und Organisations- sowie Verwaltungsmanagement</div>
+            </div>
+            <div className="flex gap-4">
+              <div className="w-20 text-right text-sm font-bold text-gray-400 pt-1">2023</div>
+              <div className="flex-1 text-gray-700">Psychologische Beraterin (VFP zertifiziert)</div>
+            </div>
+            <div className="flex gap-4">
+              <div className="w-20 text-right text-sm font-bold text-gray-400 pt-1">2024</div>
+              <div className="flex-1 text-gray-700">Systemischer Coach (zertifiziert) mit Fokus auf Kommunikationsprozesse und Konstruktivismus</div>
+            </div>
+            <div className="flex gap-4">
+              <div className="w-20 text-right text-sm font-bold text-gray-400 pt-1">2025</div>
+              <div className="flex-1 text-gray-700">Selbständig mit Fokus auf Schulungsentwicklung im Bereich Resilienz & Kommunikation. Als Assistenz über mehrere Jahre und auch heute virtuell für Sie erreichbar. Mit dem Wissen, dass das Wissen nie an einer Stelle stehen bleibt.</div>
+            </div>
           </div>
         </div>
       </section>
 
       {/* CHARAKTER */}
-      <section className="py-12 px-4 border-b border-gray-100">
-        <div className="max-w-2xl mx-auto">
-          <h2 className="text-2xl font-bold mb-6 text-center">Charakter</h2>
-          <div className="flex flex-wrap justify-center gap-3 mb-6">
-            {["Hochsensibel", "Detailverliebt", "Pragmatisch", "Visuell", "Lernbereit", "Ehrlich"].map((tag) => (
-              <span key={tag} className="px-4 py-2 bg-gray-100 rounded-full text-sm font-medium text-gray-700">{tag}</span>
-            ))}
-          </div>
-          <p className="text-gray-700 text-center max-w-lg mx-auto">Was mich ausmacht: Ich denke nutzerfristig, lehne Reibung ab und suche immer die eleganteste Lösung. Höchste UX-Standards — für mich selbst und für meine Kunden.</p>
-        </div>
-      </section>
-
-      {/* NETZWERK */}
-      <section className="py-12 px-4 border-b border-gray-100">
-        <div className="max-w-2xl mx-auto">
-          <h2 className="text-2xl font-bold mb-6 text-center">Netzwerk</h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-            <div className="bg-gray-50 p-4 rounded-lg"><h3 className="font-bold mb-1">DaVinci</h3><p className="text-sm text-gray-600">Mentor & strategische Beratung</p></div>
-            <div className="bg-gray-50 p-4 rounded-lg"><h3 className="font-bold mb-1">Hermes</h3><p className="text-sm text-gray-600">KI-Assistent & Tech-Partner</p></div>
-            <div className="bg-gray-50 p-4 rounded-lg"><h3 className="font-bold mb-1">Deniz</h3><p className="text-sm text-gray-600">IT-Infrastruktur & Server</p></div>
-            <div className="bg-gray-50 p-4 rounded-lg"><h3 className="font-bold mb-1">Cash Kingsley</h3><p className="text-sm text-gray-600">Finanz-Assistent (in Aufbau)</p></div>
-          </div>
-        </div>
-      </section>
-
-      {/* ANGEBOT */}
-      <section className="py-12 px-4 border-b border-gray-100">
-        <div className="max-w-2xl mx-auto">
-          <h2 className="text-2xl font-bold mb-6 text-center">Angebot</h2>
-          <div className="space-y-4">
-            <div className="border border-gray-200 rounded-lg p-4"><h3 className="font-bold text-lg mb-1">CCQ Charactercard</h3><p className="text-sm text-gray-600 mb-2">Die digitale Visitenkarte für dein Telefon</p><p className="text-sm text-gray-700">5 Bereiche: Profil · Charakter · Team · Angebot · Specials. Individuell für jeden Kunden. Preis auf Anfrage.</p></div>
-            <div className="border border-gray-200 rounded-lg p-4"><h3 className="font-bold text-lg mb-1">Virtual Assistance</h3><p className="text-sm text-gray-600 mb-2">Kommunikationsmanagement & Organisation</p><p className="text-sm text-gray-700">E-Mail-Management, Terminierung, Recherche, Dokumentation, Koordination.</p></div>
-            <div className="border border-gray-200 rounded-lg p-4"><h3 className="font-bold text-lg mb-1">Web & Design</h3><p className="text-sm text-gray-600 mb-2">Next.js · Tailwind · Vercel</p><p className="text-sm text-gray-700">Landing Pages, digitale Visitenkarten, kleine Webauftritte mit Fokus auf UX.</p></div>
-          </div>
-        </div>
-      </section>
-
-      {/* SPECIALS */}
-      <section className="py-12 px-4 border-b border-gray-100">
-        <div className="max-w-2xl mx-auto">
-          <h2 className="text-2xl font-bold mb-6 text-center">Specials</h2>
-          <div className="bg-black text-white rounded-xl p-6 mb-4"><h3 className="font-bold text-lg mb-2">🚐 Van-Life meets Business</h3><p className="text-sm text-gray-300">Ich arbeite remote und mobil. Flexibilität ist nicht nur ein Trend — sie ist mein Lebensstil. Das macht mich unabhängig und kreativ.</p></div>
-          <div className="bg-gray-50 rounded-xl p-6"><h3 className="font-bold text-lg mb-2">🌱 IT-Anfängerin mit Wachstumsmindset</h3><p className="text-sm text-gray-600">Ich lerne jeden Tag. Von Null auf Next.js, GitHub, Vercel, KI-Integration. Wer mit mir arbeitet, bekommt jemanden, der Fragen stellt — und Lösungen findet.</p></div>
+      <section className="py-12 px-4 border-b border-gray-100 bg-gray-50">
+        <div className="max-w-2xl mx-auto space-y-6 text-gray-700 leading-relaxed">
+          <h2 className="text-2xl font-bold text-center mb-6">Charakter</h2>
+          <p className="font-bold text-lg">Was mich ausmacht: ich bleibe nicht stehen.</p>
+          <p>Mir reicht die Oberfläche nicht. Ich muss den Hintergrund verstehen – denn nur wer die Tiefe kennt, kann an der Oberfläche wirklich wirken.</p>
+          <p>Gerade weil ich als Mensch und Persönlichkeit sensibel bin, habe ich ein feines Gespür für Dynamiken, Menschen und Projekte. Kann das anstrengend sein? Ja. Bleibe ich deshalb stehen? Nein. Ich gehe weiter – lerne von jeder Seite, verstehe jeden Aspekt, um für das grosse Ganze gewappnet zu sein.</p>
+          <p>Ich bleibe nicht Jahre in einem Bereich um ihn blind auswendig zu können. Ich wechsle die Perspektive – um den Blick für das ganze System zu behalten. Denn wer mehrere Seiten kennt, denkt vernetzter.</p>
+          <p className="italic text-gray-500">Um es in meiner Tanzsprache zu sagen: Warum jahrelang nur einen Tanzstil lernen – wenn ein anderer Stil dir beibringt wie man führt und sich führen lässt? Skills die auf jeden Tanz – und jede Zusammenarbeit – anwendbar sind.</p>
         </div>
       </section>
 
       {/* KONTAKT */}
-      <section className="py-16 px-4 bg-gray-50">
+      <section className="py-16 px-4">
         <div className="max-w-2xl mx-auto text-center">
           <h2 className="text-2xl font-bold mb-4">Kontakt</h2>
-          <p className="text-gray-600 mb-8">Speichere mich direkt in deinem Telefon — damit du mich immer griffbereit hast.</p>
+          <p className="text-gray-600 mb-8">Speichere mich direkt in deinem Telefon.</p>
           <SaveContactButton />
           <div className="mt-8 space-y-2 text-sm text-gray-500">
             <p>📧 koordination.sdolak@gmail.com</p>
             <p>🌐 ccq-produktseite.vercel.app</p>
-            <p>💼 GitHub: StefaniaMaDolak</p>
           </div>
         </div>
       </section>
 
       <footer className="py-6 px-4 text-center text-sm text-gray-400">
-        <p>© 2026 Stefania Dolak · Erkannt werden für das was wirklich zählt</p>
+        <p>© 2026 Stefania Dolak · Erkannt werden für das, was wirklich zählt.</p>
       </footer>
     </main>
   );
