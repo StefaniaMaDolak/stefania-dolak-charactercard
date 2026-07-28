@@ -1,4 +1,56 @@
+"use client";
+
 export default function Home() {
+  const handleShare = async () => {
+    try {
+      // Statisches SVG QR-Code holen
+      const response = await fetch("/stefania-qr.svg");
+      const svgText = await response.text();
+
+      // SVG in Blob umwandeln
+      const svgBlob = new Blob([svgText], { type: "image/svg+xml" });
+
+      // In Canvas zeichnen für PNG-Konvertierung
+      const img = new Image();
+      const url = URL.createObjectURL(svgBlob);
+      img.src = url;
+
+      await new Promise((resolve) => { img.onload = resolve; });
+
+      const canvas = document.createElement("canvas");
+      canvas.width = 400;
+      canvas.height = 400;
+      const ctx = canvas.getContext("2d");
+      if (ctx) {
+        ctx.fillStyle = "white";
+        ctx.fillRect(0, 0, 400, 400);
+        ctx.drawImage(img, 0, 0, 400, 400);
+      }
+
+      const pngBlob = await new Promise<Blob | null>((resolve) => {
+        canvas.toBlob((b) => resolve(b), "image/png");
+      });
+
+      URL.revokeObjectURL(url);
+
+      if (!pngBlob) return;
+
+      const file = new File([pngBlob], "stefania-dolak-ccq.png", {
+        type: "image/png",
+      });
+
+      if (navigator.canShare && navigator.canShare({ files: [file] })) {
+        await navigator.share({
+          files: [file],
+          title: "Stefania Dolak — CCQ Charactercard",
+          text: "Zum Scannen und Versenden:",
+        });
+      }
+    } catch (err) {
+      console.log("Share abgebrochen:", err);
+    }
+  };
+
   return (
     <main className="min-h-screen bg-white text-black">
       {/* CCQ / CHARACTERCARD — Links oben dezent */}
@@ -155,17 +207,15 @@ export default function Home() {
           <h2 className="text-2xl font-bold mb-4">Kontakt</h2>
           <p className="text-gray-600 mb-8">Zum Scannen und Versenden</p>
 
-          {/* QR-Code Bild mit Link */}
-          <a
-            href="https://stefania-dolak-charactercard.vercel.app"
-            className="inline-block p-4 bg-white border-2 border-gray-200 rounded-xl hover:border-gray-400 transition"
-          >
+          {/* QR-Code Bild — klickbar zum Teilen */}
+          <div className="inline-block p-4 bg-white border-2 border-gray-200 rounded-xl hover:border-gray-400 transition cursor-pointer">
             <img
               src="/stefania-qr.svg"
               alt="QR-Code zu Stefania Dolak Charactercard"
               className="w-48 h-48"
+              onClick={handleShare}
             />
-          </a>
+          </div>
 
           <p className="text-sm text-gray-400 mt-4">
             <a
