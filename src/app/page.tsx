@@ -1,51 +1,4 @@
-"use client";
-
 export default function Home() {
-  const handleShareQR = async () => {
-    try {
-      // QR-Code Bild holen
-      const response = await fetch("/api/qr");
-      const svgBlob = await response.blob();
-
-      // In PNG konvertieren für Sharing
-      const img = new Image();
-      const url = URL.createObjectURL(svgBlob);
-      img.src = url;
-
-      await new Promise((resolve) => { img.onload = resolve; });
-
-      const canvas = document.createElement("canvas");
-      canvas.width = 400;
-      canvas.height = 400;
-      const ctx = canvas.getContext("2d");
-      if (ctx) {
-        ctx.fillStyle = "white";
-        ctx.fillRect(0, 0, 400, 400);
-        ctx.drawImage(img, 0, 0, 400, 400);
-      }
-
-      const pngBlob = await new Promise<Blob>((resolve) => {
-        canvas.toBlob((b) => resolve(b!), "image/png");
-      });
-
-      URL.revokeObjectURL(url);
-
-      const file = new File([pngBlob], "stefania-dolak-ccq.png", {
-        type: "image/png",
-      });
-
-      if (navigator.canShare && navigator.canShare({ files: [file] })) {
-        await navigator.share({
-          files: [file],
-          title: "Stefania Dolak — CCQ Charactercard",
-          text: "Scanne den QR-Code oder öffne die Seite:",
-        });
-      }
-    } catch (err) {
-      console.log("Share abgebrochen:", err);
-    }
-  };
-
   return (
     <main className="min-h-screen bg-white text-black">
       {/* CCQ / CHARACTERCARD — Links oben dezent */}
@@ -200,19 +153,28 @@ export default function Home() {
       <section className="py-16 px-4">
         <div className="max-w-2xl mx-auto text-center">
           <h2 className="text-2xl font-bold mb-4">Kontakt</h2>
-          <p className="text-gray-600 mb-8">Scanne den QR-Code — oder tippe drauf, um die Seite zu teilen.</p>
+          <p className="text-gray-600 mb-8">Zum Scannen und Versenden</p>
 
-          {/* QR-Code Bild */}
-          <div className="inline-block p-6 bg-white border-2 border-gray-200 rounded-xl shadow-sm">
+          {/* QR-Code Bild mit Link */}
+          <a
+            href="https://stefania-dolak-charactercard.vercel.app"
+            className="inline-block p-4 bg-white border-2 border-gray-200 rounded-xl hover:border-gray-400 transition"
+          >
             <img
-              src="/api/qr"
+              src="/stefania-qr.svg"
               alt="QR-Code zu Stefania Dolak Charactercard"
-              className="w-64 h-64 cursor-pointer hover:scale-105 transition"
-              onClick={handleShareQR}
+              className="w-48 h-48"
             />
-          </div>
+          </a>
 
-          <p className="text-sm text-gray-400 mt-4">Tipp auf den QR-Code, um die Seite zu teilen.</p>
+          <p className="text-sm text-gray-400 mt-4">
+            <a
+              href="https://stefania-dolak-charactercard.vercel.app"
+              className="underline hover:text-gray-600"
+            >
+              stefania-dolak-charactercard.vercel.app
+            </a>
+          </p>
 
           <div className="mt-8 space-y-2 text-sm text-gray-500">
             <p>📧 stefania.dolak@mail.ch</p>
