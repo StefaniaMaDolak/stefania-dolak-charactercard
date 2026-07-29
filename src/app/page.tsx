@@ -21,8 +21,12 @@ export default function Home() {
     <main className="min-h-screen text-white font-sans" style={{ backgroundColor: '#9A9580' }}>
       {/* HERO — Großes Bild mit Name Overlay */}
       <section className="relative h-[70vh] min-h-[500px] w-full">
-        <div className="absolute inset-0 flex items-center justify-center" style={{ backgroundColor: '#C4BDB0' }}>
-          <span className="text-white/40 text-sm tracking-widest uppercase">Bild</span>
+        <div className="absolute inset-0">
+          <img
+            src="/hero.jpg"
+            alt="Stefania Dolak"
+            className="w-full h-full object-cover"
+          />
         </div>
         <div className="absolute inset-0 bg-gradient-to-b from-black/10 via-transparent to-[#9A9580]/90" />
         <div className="absolute inset-0 flex flex-col items-center justify-center">
@@ -86,8 +90,12 @@ export default function Home() {
       {/* BILD-SLOT 1 */}
       <section className="px-6 pb-16">
         <div className="max-w-2xl mx-auto">
-          <div className="w-full aspect-[4/5] rounded-2xl flex items-center justify-center" style={{ backgroundColor: '#C4BDB0' }}>
-            <span className="text-white/40 text-sm tracking-widest uppercase">Bild</span>
+          <div className="w-full aspect-[4/5] rounded-2xl overflow-hidden">
+            <img
+              src="/präsentation.jpg"
+              alt="Stefania bei einer Präsentation"
+              className="w-full h-full object-cover"
+            />
           </div>
         </div>
       </section>
@@ -127,8 +135,12 @@ export default function Home() {
       {/* BILD-SLOT 2 */}
       <section className="px-6 py-16">
         <div className="max-w-2xl mx-auto">
-          <div className="w-full aspect-[3/4] rounded-2xl flex items-center justify-center" style={{ backgroundColor: '#C4BDB0' }}>
-            <span className="text-white/40 text-sm tracking-widest uppercase">Bild</span>
+          <div className="w-full aspect-[3/4] rounded-2xl overflow-hidden">
+            <img
+              src="/workshop.jpg"
+              alt="Stefania im Workshop"
+              className="w-full h-full object-cover"
+            />
           </div>
         </div>
       </section>
@@ -188,15 +200,6 @@ export default function Home() {
             <p>Ich bleibe nicht Jahre in einem Bereich um ihn blind auswendig zu können. Ich wechsle die Perspektive – um den Blick für das ganze System zu behalten. Denn wer mehrere Seiten kennt, denkt vernetzter.</p>
 
             <p className="italic text-white/70">Um es in meiner Tanzsprache zu sagen: Warum jahrelang nur einen Tanzstil lernen – wenn ein anderer Stil dir beibringt wie man führt und sich führen lässt? Skills die auf jeden Tanz – und jede Zusammenarbeit – anwendbar sind.</p>
-          </div>
-        </div>
-      </section>
-
-      {/* BILD-SLOT 3 */}
-      <section className="px-6 pb-16">
-        <div className="max-w-2xl mx-auto">
-          <div className="w-full aspect-[4/5] rounded-2xl flex items-center justify-center" style={{ backgroundColor: '#C4BDB0' }}>
-            <span className="text-white/40 text-sm tracking-widest uppercase">Bild</span>
           </div>
         </div>
       </section>
