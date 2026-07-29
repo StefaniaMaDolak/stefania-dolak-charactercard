@@ -13,67 +13,82 @@ export default function Home() {
     }
   };
 
-  return (
-    <main className="min-h-screen bg-white text-black">
-      {/* CCQ / CHARACTERCARD — Links oben dezent */}
-      <div className="absolute top-4 left-4 z-10">
-        <p className="text-xs font-bold tracking-widest text-gray-400 uppercase">CCQ / CHARACTERCARD</p>
-      </div>
+  const scrollTo = (id: string) => {
+    document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
+  };
 
-      {/* HERO */}
-      <section className="bg-black text-white py-16 px-4 pt-20">
-        <div className="max-w-2xl mx-auto text-center">
-          {/* Bild-Platzhalter */}
-          <div className="w-32 h-32 mx-auto mb-6 rounded-full bg-gray-700 flex items-center justify-center">
-            <span className="text-gray-400 text-sm">Bild</span>
-          </div>
-          <h1 className="text-4xl md:text-5xl font-bold mb-2">Stefania Dolak</h1>
-          <p className="text-xl text-gray-300 mb-4">VA für Kommunikationsmanagement</p>
+  return (
+    <main className="min-h-screen text-white font-sans" style={{ backgroundColor: '#9A9580' }}>
+      {/* HERO — Großes Bild mit Name Overlay */}
+      <section className="relative h-[70vh] min-h-[500px] w-full">
+        <div className="absolute inset-0 flex items-center justify-center" style={{ backgroundColor: '#C4BDB0' }}>
+          <span className="text-white/40 text-sm tracking-widest uppercase">Bild</span>
+        </div>
+        <div className="absolute inset-0 bg-gradient-to-b from-black/10 via-transparent to-[#9A9580]/90" />
+        <div className="absolute inset-0 flex flex-col items-center justify-center">
+          <h1 className="text-5xl md:text-7xl font-light tracking-wide text-white drop-shadow-lg">
+            Stefania
+          </h1>
+          <p className="text-xs md:text-sm tracking-[0.3em] uppercase mt-4 text-white/80">
+            Kommunikationsmanagement
+          </p>
+        </div>
+      </section>
+
+      {/* NAVIGATION — Runde Pillen */}
+      <section className="px-6 -mt-8 relative z-10">
+        <div className="max-w-md mx-auto space-y-3">
+          {[
+            { label: "Profil", id: "profil" },
+            { label: "Angebot", id: "angebot" },
+            { label: "Hintergrund", id: "hintergrund" },
+            { label: "Charakter", id: "charakter" },
+            { label: "Kontakt", id: "kontakt" },
+          ].map((item) => (
+            <button
+              key={item.id}
+              onClick={() => scrollTo(item.id)}
+              className="w-full py-3.5 px-6 rounded-full border border-white/40 bg-white/5 backdrop-blur-sm
+                         text-white text-xs tracking-[0.2em] uppercase
+                         hover:bg-white/15 hover:border-white/60 transition-all duration-300"
+            >
+              {item.label}
+            </button>
+          ))}
         </div>
       </section>
 
       {/* PROFIL */}
-      <section className="py-12 px-4 border-b border-gray-100">
-        <div className="max-w-2xl mx-auto space-y-6 text-gray-700 leading-relaxed">
-          <h2 className="text-2xl font-bold text-center mb-6">Profil</h2>
-
-          <p>Kommunikation verbindet. Kommunikation ist viel mehr – denn sie ist überall.</p>
-
-          <p>In einem Jahrzehnt im Kundenkontakt und in der Mitarbeiterbetreuung lernte ich: Kommunikation ist nicht nur direkter Kontakt – sie ist auch die Art wie man sich präsentiert. Kommunikation geschieht auch durch Bilder – weshalb mich Mediendesign seit Jahren begleitet.</p>
-
-          <p>Gleichzeitig spielt Psychologie eine zentrale Rolle – denn nur wer versteht welche Bedürfnisse, Persönlichkeiten, Einschränkungen und Besonderheiten auf jeder Seite stehen, kann Kommunikation wirklich anpassen. Nur dieses tiefgehende Wissen macht Kommunikation wirklich erreichbar – für eine Zielgruppe, individuell oder für jeden.</p>
-
-          <p>Doch Menschlichkeit, Feinfühligkeit oder Empathie ist heute leider nicht alleine tragbar – es tut mir leid aber es ist die Wahrheit die keiner ausspricht. Weil Wissen mit der Zeit geht, kam die Technik hinzu – und gerade sie hat vieles zerstört. Weshalb ich mir gezielt technisches Know-how aneignete – in IT, Programmen, Darstellungen und dem Wissen von heute und morgen – um die Technik so zu nutzen dass das Wesentliche, was normalerweise untergeht, endlich sichtbar wird.</p>
-
-          <p>Das alles ist nicht getrennt – sondern wichtig miteinander zu verknüpfen. Wissen ist Macht – aber wertlos wenn es nicht richtig eingepflegt, verwaltet und gespeichert wird, um es so zu verändern dass es den grössten Erfolg bringt.</p>
-
-          <p>Erfolg ist für jeden Menschen, jeden Betrieb, jedes Unternehmen etwas anderes. Doch so unterschiedlich jeder sein mag – am Ende geht es immer darum: das Richtige festhalten, es verstehen, verbessern und dann mutig loslegen. Nicht weil wir nicht gut genug sind – sondern weil wir die beste Version von uns und dem was wir aufgebaut haben leben wollen.</p>
-
-          <p>Ein Bedürfnis das jeder in sich trägt: verstanden werden. Gesehen werden.</p>
-
-          <p className="font-bold text-lg text-center pt-2">Dieses Bedürfnis ist meine Motivation.</p>
+      <section id="profil" className="py-16 px-6">
+        <div className="max-w-md mx-auto text-center space-y-6">
+          <h2 className="text-3xl font-light tracking-wide">Profil</h2>
+          <div className="w-12 h-px bg-white/30 mx-auto" />
+          <p className="text-sm leading-relaxed text-white/85">
+            Kommunikation verbindet. In einem Jahrzehnt im Kundenkontakt lernte ich: 
+            Kommunikation ist nicht nur direkter Kontakt — sie ist auch die Art, 
+            wie man sich präsentiert. Psychologie, Mediendesign und Technik — 
+            alles verknüpft, um das Wesentliche sichtbar zu machen.
+          </p>
         </div>
+      </section>
 
-        {/* BILD-SLOT 1 */}
-        <div className="max-w-2xl mx-auto mt-8">
-          <div className="w-full h-64 bg-gray-200 rounded-lg flex items-center justify-center">
-            <span className="text-gray-400">Bild</span>
+      {/* BILD-SLOT 1 */}
+      <section className="px-6 pb-16">
+        <div className="max-w-md mx-auto">
+          <div className="w-full aspect-[4/5] rounded-2xl flex items-center justify-center" style={{ backgroundColor: '#C4BDB0' }}>
+            <span className="text-white/40 text-sm tracking-widest uppercase">Bild</span>
           </div>
         </div>
       </section>
 
       {/* ANGEBOT */}
-      <section className="py-12 px-4 border-b border-gray-100 bg-gray-50">
-        <div className="max-w-2xl mx-auto">
-          <h2 className="text-2xl font-bold text-center mb-6">Angebot</h2>
-          <p className="text-gray-700 text-center mb-2">
-            Mein Angebot vereint drei Ebenen: <span className="font-bold">Verwaltung · Psychologie · Systemik</span>
+      <section id="angebot" className="py-16 px-6" style={{ backgroundColor: '#8E8875' }}>
+        <div className="max-w-md mx-auto text-center space-y-6">
+          <h2 className="text-3xl font-light tracking-wide">Angebot</h2>
+          <div className="w-12 h-px bg-white/30 mx-auto" />
+          <p className="text-xs tracking-[0.2em] uppercase text-white/60 mb-8">
+            Verwaltung · Psychologie · Systemik
           </p>
-          <p className="text-sm text-gray-500 text-center mb-8">
-            Weil Struktur allein nicht reicht. Weil Menschen keine Prozesse sind. Und weil alles miteinander zusammenhängt.
-          </p>
-
-          <p className="text-sm text-gray-500 text-center mb-6">Ich arbeite stundenbasiert in folgenden Bereichen:</p>
 
           <div className="space-y-3">
             {[
@@ -83,55 +98,52 @@ export default function Home() {
               "Webseitenanalyse & -erstellung",
               "CharacterCard Anpassung",
             ].map((item) => (
-              <div key={item} className="bg-white border border-gray-200 rounded-lg p-4 text-center font-medium text-gray-700">
+              <div
+                key={item}
+                className="py-3 px-6 rounded-full border border-white/20 bg-white/5 text-white/90 text-sm tracking-wide"
+              >
                 {item}
               </div>
             ))}
           </div>
-
-        {/* BILD-SLOT 2 */}
-        <div className="mt-8">
-          <div className="w-full h-64 bg-gray-200 rounded-lg flex items-center justify-center">
-            <span className="text-gray-400">Bild</span>
-          </div>
         </div>
+      </section>
+
+      {/* BILD-SLOT 2 */}
+      <section className="px-6 py-16">
+        <div className="max-w-md mx-auto">
+          <div className="w-full aspect-[3/4] rounded-2xl flex items-center justify-center" style={{ backgroundColor: '#C4BDB0' }}>
+            <span className="text-white/40 text-sm tracking-widest uppercase">Bild</span>
+          </div>
         </div>
       </section>
 
       {/* HINTERGRUND */}
-      <section className="py-12 px-4 border-b border-gray-100">
-        <div className="max-w-2xl mx-auto">
-          <h2 className="text-2xl font-bold text-center mb-6">Hintergrund</h2>
-          <div className="space-y-4 mb-8">
-            <div className="flex gap-4">
-              <div className="w-20 text-right text-sm font-bold text-gray-400 pt-1">Ab 2014</div>
-              <div className="flex-1 text-gray-700">10 Jahre kaufmännisch & medizinisch im Bereich Kundenkontakt und Organisations- sowie Verwaltungsmanagement</div>
-            </div>
-            <div className="flex gap-4">
-              <div className="w-20 text-right text-sm font-bold text-gray-400 pt-1">Ab 2023</div>
-              <div className="flex-1 text-gray-700">Psychologische Beraterin (VFP zertifiziert)</div>
-            </div>
-            <div className="flex gap-4">
-              <div className="w-20 text-right text-sm font-bold text-gray-400 pt-1">Ab 2024</div>
-              <div className="flex-1 text-gray-700">Systemischer Coach (zertifiziert) mit Fokus auf Kommunikationsprozesse und Konstruktivismus</div>
-            </div>
-            <div className="flex gap-4">
-              <div className="w-20 text-right text-sm font-bold text-gray-400 pt-1">Ab 2025</div>
-              <div className="flex-1 text-gray-700">Selbständig mit Fokus auf Schulungsentwicklung im Bereich Resilienz & Kommunikation</div>
-            </div>
+      <section id="hintergrund" className="py-16 px-6" style={{ backgroundColor: '#8E8875' }}>
+        <div className="max-w-md mx-auto text-center space-y-6">
+          <h2 className="text-3xl font-light tracking-wide">Hintergrund</h2>
+          <div className="w-12 h-px bg-white/30 mx-auto" />
+
+          <div className="space-y-6 text-left">
+            {[
+              { year: "2014", text: "10 Jahre kaufmännisch & medizinisch im Kundenkontakt und Verwaltungsmanagement" },
+              { year: "2023", text: "Psychologische Beraterin (VFP zertifiziert)" },
+              { year: "2024", text: "Systemischer Coach mit Fokus auf Kommunikationsprozesse" },
+              { year: "2025", text: "Selbständig mit Fokus auf Kommunikation & Assistenz" },
+            ].map((item) => (
+              <div key={item.year} className="flex gap-4">
+                <div className="w-16 text-right text-xs text-white/50 pt-1 tracking-wider">{item.year}</div>
+                <div className="flex-1 text-sm text-white/85 leading-relaxed">{item.text}</div>
+              </div>
+            ))}
           </div>
 
-          {/* Buttons */}
-          <div className="text-center space-y-3">
+          <div className="pt-8 space-y-3">
             <a
               href="mailto:stefania.dolak@mail.ch?subject=Termin%20vereinbaren"
-              className="inline-block bg-black text-white px-8 py-3 rounded-full font-medium hover:bg-gray-800 transition"
-            >
-              Als Assistenz über mehrere Jahre und auch heute virtuell für Sie erreichbar. Mit dem Wissen, dass das Wissen nie an einer Stelle stehen bleibt.
-            </a>
-            <a
-              href="mailto:stefania.dolak@mail.ch?subject=Gespr%C3%A4ch%20vereinbaren"
-              className="inline-block border-2 border-black text-black px-8 py-3 rounded-full font-medium hover:bg-black hover:text-white transition"
+              className="inline-block w-full py-3.5 px-6 rounded-full border border-white/40 bg-white/5
+                         text-white text-xs tracking-[0.2em] uppercase text-center
+                         hover:bg-white/15 transition-all duration-300"
             >
               Gespräch vereinbaren
             </a>
@@ -140,78 +152,86 @@ export default function Home() {
       </section>
 
       {/* CHARAKTER */}
-      <section className="py-12 px-4 border-b border-gray-100 bg-gray-50">
-        <div className="max-w-2xl mx-auto space-y-6 text-gray-700 leading-relaxed">
-          <h2 className="text-2xl font-bold text-center mb-6">Charakter</h2>
+      <section id="charakter" className="py-16 px-6">
+        <div className="max-w-md mx-auto text-center space-y-6">
+          <h2 className="text-3xl font-light tracking-wide">Charakter</h2>
+          <div className="w-12 h-px bg-white/30 mx-auto" />
 
-          <p className="font-bold text-lg">Was mich ausmacht: ich bleibe nicht stehen.</p>
-
-          <p>Mir reicht die Oberfläche nicht. Ich muss den Hintergrund verstehen – denn nur wer die Tiefe kennt, kann an der Oberfläche wirklich wirken.</p>
-
-          <p>Gerade weil ich als Mensch und Persönlichkeit sensibel bin, habe ich ein feines Gespür für Dynamiken, Menschen und Projekte. Kann das anstrengend sein? Ja. Bleibe ich deshalb stehen? Nein. Ich gehe weiter – lerne von jeder Seite, verstehe jeden Aspekt, um für das grosse Ganze gewappnet zu sein.</p>
-
-          <p>Ich bleibe nicht Jahre in einem Bereich um ihn blind auswendig zu können. Ich wechsle die Perspektive – um den Blick für das ganze System zu behalten. Denn wer mehrere Seiten kennt, denkt vernetzter.</p>
-
-          <p className="italic text-gray-500">Um es in meiner Tanzsprache zu sagen: Warum jahrelang nur einen Tanzstil lernen – wenn ein anderer Stil dir beibringt wie man führt und sich führen lässt? Skills die auf jeden Tanz – und jede Zusammenarbeit – anwendbar sind.</p>
-        </div>
-
-        {/* BILD-SLOT 3 */}
-        <div className="max-w-2xl mx-auto mt-8">
-          <div className="w-full h-64 bg-gray-200 rounded-lg flex items-center justify-center">
-            <span className="text-gray-400">Bild</span>
+          <div className="text-left space-y-4">
+            <p className="text-sm leading-relaxed text-white/85">
+              Was mich ausmacht: ich bleibe nicht stehen. Mir reicht die Oberfläche nicht. 
+              Ich muss den Hintergrund verstehen — denn nur wer die Tiefe kennt, 
+              kann an der Oberfläche wirklich wirken.
+            </p>
+            <p className="text-sm leading-relaxed text-white/85 italic">
+              Gerade weil ich sensibel bin, habe ich ein feines Gespür für Dynamiken, 
+              Menschen und Projekte. Ich gehe weiter — lerne von jeder Seite, verstehe jeden Aspekt, 
+              um für das grosse Ganze gewappnet zu sein.
+            </p>
           </div>
         </div>
       </section>
 
-      {/* QR-CODE KONTAKT */}
-      <section className="py-16 px-4">
-        <div className="max-w-2xl mx-auto text-center">
-          <h2 className="text-2xl font-bold mb-4">Kontakt</h2>
-          <p className="text-gray-600 mb-8">Zum Scannen und Versenden</p>
+      {/* BILD-SLOT 3 */}
+      <section className="px-6 pb-16">
+        <div className="max-w-md mx-auto">
+          <div className="w-full aspect-[4/5] rounded-2xl flex items-center justify-center" style={{ backgroundColor: '#C4BDB0' }}>
+            <span className="text-white/40 text-sm tracking-widest uppercase">Bild</span>
+          </div>
+        </div>
+      </section>
 
-          {/* QR-Code Bild — kleiner, mit Link */}
-          <div className="inline-block p-4 bg-white border-2 border-gray-200 rounded-xl">
+      {/* KONTAKT */}
+      <section id="kontakt" className="py-16 px-6" style={{ backgroundColor: '#8E8875' }}>
+        <div className="max-w-md mx-auto text-center space-y-6">
+          <h2 className="text-3xl font-light tracking-wide">Kontakt</h2>
+          <div className="w-12 h-px bg-white/30 mx-auto" />
+
+          <div className="inline-block p-4 bg-white/10 backdrop-blur-sm rounded-2xl border border-white/20">
             <img
               src="/stefania-qr.svg"
               alt="QR-Code zu Stefania Dolak Charactercard"
-              className="w-40 h-40"
+              className="w-36 h-36"
             />
           </div>
 
-          {/* KLICKBARER LINK */}
-          <p className="mt-4 text-lg">
+          <p className="text-sm">
             <a
               href="https://stefania-dolak-charactercard.vercel.app"
-              className="text-black underline font-bold hover:text-gray-600"
+              className="text-white/80 underline underline-offset-4 hover:text-white transition"
             >
               stefania-dolak-charactercard.vercel.app
             </a>
           </p>
 
-          {/* TEILEN BUTTON */}
           <button
             onClick={handleShare}
-            className="mt-6 bg-black text-white px-8 py-3 rounded-full font-medium hover:bg-gray-800 transition"
+            className="mt-4 py-3.5 px-8 rounded-full border border-white/40 bg-white/5
+                       text-white text-xs tracking-[0.2em] uppercase
+                       hover:bg-white/15 transition-all duration-300"
           >
-            📤 Seite teilen
+            Seite teilen
           </button>
 
-          <div className="mt-8 space-y-2 text-sm text-gray-500">
-            <p>📧 stefania.dolak@mail.ch</p>
+          <div className="pt-4 space-y-2 text-sm text-white/60">
+            <p>stefania.dolak@mail.ch</p>
           </div>
         </div>
       </section>
 
-      {/* CCQ WERBUNG — Dezent, hellgrau, am Ende jeder CCQ */}
-      <section className="py-8 px-4 bg-gray-100">
-        <div className="max-w-2xl mx-auto text-center">
-          <p className="text-xs font-bold tracking-widest text-gray-400 uppercase mb-1">CCQ / CHARACTERCARD</p>
-          <p className="text-sm text-gray-500">Deine Karte. Dein Charakter. — Erkannt werden für das, was wirklich zählt.</p>
+      {/* CCQ WERBUNG */}
+      <section className="py-10 px-6 border-t border-white/10">
+        <div className="max-w-md mx-auto text-center space-y-2">
+          <p className="text-[10px] tracking-[0.3em] uppercase text-white/40">CCQ / CHARACTERCARD</p>
+          <p className="text-lg text-white/70 italic">Deine Karte. Dein Charakter.</p>
         </div>
       </section>
 
-      <footer className="py-6 px-4 text-center text-sm text-gray-400">
-        <p>© 2026 Stefania Dolak · Erkannt werden für das, was wirklich zählt.</p>
+      {/* FOOTER */}
+      <footer className="py-6 px-4 text-center border-t border-white/10">
+        <p className="text-[10px] tracking-wider text-white/30">
+          © 2026 Stefania Dolak
+        </p>
       </footer>
     </main>
   );
