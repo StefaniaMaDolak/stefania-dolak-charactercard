@@ -19,21 +19,20 @@ export default function Home() {
 
   return (
     <main className="min-h-screen text-white font-sans" style={{ backgroundColor: '#9A9580' }}>
-      {/* HERO — Großes Bild mit Name Overlay */}
-      <section className="relative h-[70vh] min-h-[500px] w-full">
-        <div className="absolute inset-0">
-          <img
-            src="/hero.jpg"
-            alt="Stefania Dolak"
-            className="w-full h-full object-cover"
-          />
-        </div>
-        <div className="absolute inset-0 bg-gradient-to-b from-black/10 via-transparent to-[#9A9580]/90" />
-        <div className="absolute inset-0 flex flex-col items-center justify-center">
-          <h1 className="text-5xl md:text-7xl font-light tracking-wide text-white drop-shadow-lg">
+      {/* HERO — Dezentes rundes Bild mit Name */}
+      <section className="py-16 px-6 text-center">
+        <div className="max-w-md mx-auto">
+          <div className="w-28 h-28 mx-auto mb-6 rounded-full overflow-hidden border-2 border-white/30">
+            <img
+              src="/hero.jpg"
+              alt="Stefania Dolak"
+              className="w-full h-full object-cover"
+            />
+          </div>
+          <h1 className="text-4xl md:text-5xl font-light tracking-wide text-white">
             Stefania
           </h1>
-          <p className="text-xs md:text-sm tracking-[0.3em] uppercase mt-4 text-white/80">
+          <p className="text-xs md:text-sm tracking-[0.3em] uppercase mt-3 text-white/70">
             Kommunikationsmanagement
           </p>
         </div>
@@ -87,10 +86,10 @@ export default function Home() {
         </div>
       </section>
 
-      {/* BILD-SLOT 1 */}
-      <section className="px-6 pb-16">
-        <div className="max-w-2xl mx-auto">
-          <div className="w-full aspect-[4/5] rounded-2xl overflow-hidden">
+      {/* BILD-SLOT 1 — Dezent, klein */}
+      <section className="px-6 pb-8">
+        <div className="max-w-sm mx-auto">
+          <div className="w-48 h-48 mx-auto rounded-xl overflow-hidden opacity-80">
             <img
               src="/präsentation.jpg"
               alt="Stefania bei einer Präsentation"
@@ -132,10 +131,10 @@ export default function Home() {
         </div>
       </section>
 
-      {/* BILD-SLOT 2 */}
-      <section className="px-6 py-16">
-        <div className="max-w-2xl mx-auto">
-          <div className="w-full aspect-[3/4] rounded-2xl overflow-hidden">
+      {/* BILD-SLOT 2 — Dezent, klein */}
+      <section className="px-6 py-8">
+        <div className="max-w-sm mx-auto">
+          <div className="w-48 h-48 mx-auto rounded-xl overflow-hidden opacity-80">
             <img
               src="/workshop.jpg"
               alt="Stefania im Workshop"
