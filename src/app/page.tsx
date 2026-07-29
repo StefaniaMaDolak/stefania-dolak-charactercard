@@ -86,19 +86,6 @@ export default function Home() {
         </div>
       </section>
 
-      {/* BILD-SLOT 1 — Dezent, klein */}
-      <section className="px-6 pb-8">
-        <div className="max-w-sm mx-auto">
-          <div className="w-48 h-48 mx-auto rounded-xl overflow-hidden opacity-80">
-            <img
-              src="/präsentation.jpg"
-              alt="Stefania bei einer Präsentation"
-              className="w-full h-full object-cover"
-            />
-          </div>
-        </div>
-      </section>
-
       {/* ANGEBOT */}
       <section id="angebot" className="py-16 px-6" style={{ backgroundColor: '#8E8875' }}>
         <div className="max-w-2xl mx-auto text-center space-y-8">
@@ -127,19 +114,6 @@ export default function Home() {
                 {item}
               </div>
             ))}
-          </div>
-        </div>
-      </section>
-
-      {/* BILD-SLOT 2 — Dezent, klein */}
-      <section className="px-6 py-8">
-        <div className="max-w-sm mx-auto">
-          <div className="w-48 h-48 mx-auto rounded-xl overflow-hidden opacity-80">
-            <img
-              src="/workshop.jpg"
-              alt="Stefania im Workshop"
-              className="w-full h-full object-cover"
-            />
           </div>
         </div>
       </section>
