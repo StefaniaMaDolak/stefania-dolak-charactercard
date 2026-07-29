@@ -1,0 +1,40 @@
+{
+  "visitenkarte": {
+    "vorne": "/visitenkarte-vorne.jpg",
+    "hinten": "/visitenkarte-hinten.jpg"
+  },
+  "farben": {
+    "primary": "#C4BDB0",
+    "secondary": "#9A9580",
+    "dark": "#5C5648",
+    "light": "#F5F0EA"
+  },
+  "meta": {
+    "name": "Stefania Dolak",
+    "titel": "Kommunikationsmanagement",
+    "email": "stefania.dolak@mail.ch"
+  },
+  "bereiche": {
+    "profil": true,
+    "charakter": true,
+    "hintergrund": true,
+    "angebot": true,
+    "kontakt": true,
+    "specials": true
+  },
+  "leistungen": [
+    "Kundenservice",
+    "Mitarbeiterbetreuung",
+    "Projektanalyse & Changemanagement",
+    "Webseitenanalyse & -erstellung",
+    "CharacterCard Anpassung"
+  ],
+  "vita": [
+    { "year": "2014", "text": "10 Jahre kaufmännisch & medizinisch im Bereich Kundenkontakt und Organisations- sowie Verwaltungsmanagement" },
+    { "year": "2023", "text": "Psychologische Beraterin (VFP zertifiziert)" },
+    { "year": "2024", "text": "Systemischer Coach (zertifiziert) mit Fokus auf Kommunikationsprozesse und Konstruktivismus" },
+    { "year": "2025", "text": "Selbständig mit Fokus auf Schulungsentwicklung im Bereich Resilienz & Kommunikation" }
+  ],
+  "claim": "Verwaltung · Psychologie · Systemik",
+  "subclaim": "Weil Struktur allein nicht reicht. Weil Menschen keine Prozesse sind. Und weil alles miteinander zusammenhängt."
+}
