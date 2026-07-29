@@ -19,10 +19,10 @@ export default function Home() {
 
   return (
     <main className="min-h-screen text-white font-sans" style={{ backgroundColor: '#9A9580' }}>
-      {/* HERO — Dezentes rundes Bild mit Name */}
+      {/* HERO — Echtes Portrait, elegant */}
       <section className="py-16 px-6 text-center">
-        <div className="max-w-md mx-auto">
-          <div className="w-28 h-28 mx-auto mb-6 rounded-full overflow-hidden border-2 border-white/30">
+        <div className="max-w-sm mx-auto">
+          <div className="w-64 h-80 mx-auto mb-6 rounded-2xl overflow-hidden border border-white/20 shadow-2xl">
             <img
               src="/hero.jpg"
               alt="Stefania Dolak"
