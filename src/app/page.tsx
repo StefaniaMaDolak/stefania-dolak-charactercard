@@ -5,6 +5,7 @@ import { useCCQConfig } from "../components/CCQConfigLoader";
 
 export default function Home() {
   const [isFlipped, setIsFlipped] = useState(false);
+  const [openOffer, setOpenOffer] = useState<string | null>(null);
   const { config, loading } = useCCQConfig();
 
   if (loading || !config) {
@@ -23,7 +24,7 @@ export default function Home() {
         url: typeof window !== "undefined" ? window.location.href : "https://stefania-dolak-charactercard.vercel.app",
       });
     } catch {
-      // Nutzer hat abgebrochen — kein Fehler anzeigen
+      // Nutzer hat abgebrochen
     }
   };
 
@@ -31,13 +32,49 @@ export default function Home() {
     document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
   };
 
+  const toggleOffer = (id: string) => {
+    setOpenOffer(openOffer === id ? null : id);
+  };
+
+  const angebote = [
+    {
+      id: "kundenservice",
+      title: "Kundenservice",
+      kurz: "Direkter Kontakt, professionell und persönlich.",
+      lang: "Ich übernehme für dich die Kommunikation mit deinen Kunden — per E-Mail, Telefon oder Chat. Schnell, zuverlässig und mit dem Gespür, das zwischen den Zeilen liest. Ob Anfragen, Beschwerden oder Follow-ups: Deine Kunden fühlen sich verstanden und gut betreut.",
+    },
+    {
+      id: "mitarbeiter",
+      title: "Mitarbeiterbetreuung",
+      kurz: "Interne Kommunikation, die verbindet statt belastet.",
+      lang: "Onboarding, Updates, Konflikte oder einfach nur jemand, der für das Team da ist — ich unterstütze dich bei der internen Kommunikation. Mit psychologischem Feingefühl und organisatorischer Klarheit, damit dein Team gut zusammenarbeitet.",
+    },
+    {
+      id: "projekt",
+      title: "Projektanalyse & Changemanagement",
+      kurz: "Struktur schaffen, wo Chaos war.",
+      lang: "Du hast ein Projekt, das nicht vorankommt? Oder einen Wandel, den niemand versteht? Ich analysiere die Lage, identifiziere Stolpersteine und entwickele einen klaren Plan — zusammen mit dir und deinem Team, damit der Change wirklich ankommt.",
+    },
+    {
+      id: "webseite",
+      title: "Webseitenanalyse & -erstellung",
+      kurz: "Online sichtbar — und zwar richtig.",
+      lang: "Deine Webseite ist deine digitale Visitenkarte. Ich analysiere, was funktioniert und was nicht — und wenn nötig, baue ich sie mit dir neu auf. Technisch fundiert, ästhetisch ansprechend und vor allem: so, dass deine Besucher verstehen, wer du bist.",
+    },
+    {
+      id: "ccq",
+      title: "CharacterCard Anpassung",
+      kurz: "Deine digitale Visitenkarte, einzigartig wie du.",
+      lang: "Eine CharacterCard ist mehr als eine Webseite — sie ist dein digitales Ich. Ich passe Layout, Texte, Farben und Inhalte so an, dass sie wirklich zu dir passen. Mit allem, was dazugehört: QR-Code, Kontaktfunktion, Share-Sheet und dem gewissen Etwas, das dich unverwechselbar macht.",
+    },
+  ];
+
   return (
     <main
       className="min-h-screen text-[var(--ccq-dark)] font-sans"
       style={{ backgroundColor: "var(--ccq-primary)" }}
     >
       {/* === BEREICH 1: FLIP-CARD VISITENKARTE === */}
-      {/* ANPASSEN: Bilder in public/ und ccq-config.json aktualisieren */}
       <section className="py-12 px-6 flex flex-col items-center">
         <div
           className="relative cursor-pointer"
@@ -53,7 +90,6 @@ export default function Home() {
               aspectRatio: "16/9",
             }}
           >
-            {/* VORDERSEITE */}
             <div
               className="absolute inset-0 rounded-2xl overflow-hidden shadow-2xl"
               style={{ backfaceVisibility: "hidden", WebkitBackfaceVisibility: "hidden" }}
@@ -64,8 +100,6 @@ export default function Home() {
                 className="w-full h-full object-cover"
               />
             </div>
-
-            {/* RÜCKSEITE */}
             <div
               className="absolute inset-0 rounded-2xl overflow-hidden shadow-2xl"
               style={{
@@ -93,8 +127,8 @@ export default function Home() {
           {[
             ...(config.bereiche.profil ? [{ label: "Profil", id: "profil" }] : []),
             ...(config.bereiche.charakter ? [{ label: "Charakter", id: "charakter" }] : []),
-            ...(config.bereiche.hintergrund ? [{ label: "Hintergrund", id: "hintergrund" }] : []),
             ...(config.bereiche.angebot ? [{ label: "Angebot", id: "angebot" }] : []),
+            ...(config.bereiche.specials ? [{ label: "Specials", id: "specials" }] : []),
             ...(config.bereiche.kontakt ? [{ label: "Kontakt", id: "kontakt" }] : []),
           ].map((item) => (
             <button
@@ -111,36 +145,41 @@ export default function Home() {
         </div>
       </section>
 
-      {/* === BEREICH 3: PROFIL (Leistungen) === */}
-      {/* ANPASSEN: Leistungen in ccq-config.json unter "leistungen" eintragen */}
+      {/* === BEREICH 3: PROFIL (Kommunikations-Text) === */}
       {config.bereiche.profil && (
         <section id="profil" className="py-16 px-6">
           <div className="max-w-2xl mx-auto text-center space-y-8">
             <h2 className="text-3xl font-light tracking-wide">Profil</h2>
             <div className="w-12 h-px bg-white/30 mx-auto" />
-            <p className="text-sm leading-relaxed opacity-85">
-              Mein Angebot vereint drei Ebenen:{" "}
-              <span className="font-bold">{config.claim}</span>
-            </p>
-            <p className="text-xs opacity-60">{config.subclaim}</p>
 
-            <div className="space-y-3 pt-4">
-              {config.leistungen.map((item) => (
-                <div
-                  key={item}
-                  className="py-3 px-6 rounded-full border border-white/20 bg-white/5 text-sm tracking-wide"
-                  style={{ color: "var(--ccq-light)" }}
-                >
-                  {item}
-                </div>
-              ))}
+            <div className="text-left space-y-6 text-sm leading-relaxed">
+              <p className="font-bold text-base text-center">Kommunikation verbindet. Kommunikation ist viel mehr – denn sie ist überall.</p>
+
+              <p>Weisst du was passiert wenn Kommunikation nicht ankommt? Sie wird unsichtbar. Das Beste was du zu bieten hast – dein Herzensblut, deine Arbeit, dein Wissen – geht unter. Nicht weil es nicht gut genug ist. Sondern weil es nicht richtig gezeigt wird.</p>
+
+              <p>Genau hier setze ich an.</p>
+
+              <p>In einem Jahrzehnt im Kundenkontakt und in der Mitarbeiterbetreuung lernte ich: Kommunikation ist nicht nur direkter Kontakt – sie ist auch die Art wie man sich präsentiert. Kommunikation geschieht durch Worte. Durch Bilder. Durch das was zwischen den Zeilen steht – und durch das was du weglässt.</p>
+
+              <p>Doch weisst du was heute leider nicht mehr alleine trägt? Menschlichkeit, Feinfühligkeit und Empathie. Es tut mir leid – aber es ist die Wahrheit die keiner ausspricht. Weil Wissen mit der Zeit geht, kam die Technik hinzu – und gerade sie hat vieles zerstört. Was früher durch ein Gespräch, durch Präsenz, durch echten Kontakt entstanden ist – geht heute oft unter.</p>
+
+              <p>Weshalb ich mir gezielt technisches Know-how aneignete – in IT, Programmen, Darstellungen und dem Wissen von heute und morgen – um die Technik so zu nutzen dass das Wesentliche, was normalerweise untergeht, endlich sichtbar wird.</p>
+
+              <p>Denn nur wer die Psychologie dahinter versteht – welche Bedürfnisse, Persönlichkeiten, Einschränkungen und Besonderheiten auf jeder Seite stehen – kann Kommunikation wirklich anpassen. Für eine Zielgruppe. Individuell. Oder für jeden.</p>
+
+              <p>Das alles ist nicht getrennt – sondern wichtig miteinander zu verknüpfen. Wissen ist Macht – aber wertlos wenn es nicht richtig eingepflegt, verwaltet und gespeichert wird, um es so zu verändern dass es den grössten Erfolg bringt.</p>
+
+              <p>Und Erfolg? Der ist für jeden anders. Für dich als Einzelperson. Für deinen Betrieb. Für dein Unternehmen. Doch so unterschiedlich jeder sein mag – am Ende geht es immer darum: das Richtige festhalten, es verstehen, verbessern und dann mutig loslegen. Nicht weil du nicht gut genug bist – sondern weil du die beste Version von dir und dem was du aufgebaut hast leben willst.</p>
+
+              <p>Ein Bedürfnis das jeder in sich trägt: verstanden werden. Gesehen werden.</p>
+
+              <p className="font-bold text-base text-center">Dieses Bedürfnis ist meine Motivation.</p>
             </div>
           </div>
         </section>
       )}
 
       {/* === BEREICH 4: CHARAKTER === */}
-      {/* ANPASSEN: Text in ccq-config.json unter "charakter" eintragen. Optional ausblendbar */}
       {config.bereiche.charakter && (
         <section
           id="charakter"
@@ -152,7 +191,7 @@ export default function Home() {
             <div className="w-12 h-px bg-white/30 mx-auto" />
 
             <div className="text-left space-y-6 text-sm leading-relaxed">
-              <p className="font-bold text-base">Was mich ausmacht: ich bleibe nicht stehen.</p>
+              <p className="font-bold text-base">Ich bleibe nicht stehen.</p>
 
               <p>Mir reicht die Oberfläche nicht. Ich muss den Hintergrund verstehen – denn nur wer die Tiefe kennt, kann an der Oberfläche wirklich wirken.</p>
 
@@ -166,49 +205,65 @@ export default function Home() {
         </section>
       )}
 
-      {/* === BEREICH 5: HINTERGRUND (Vita) === */}
-      {/* ANPASSEN: Zeitstrahl in ccq-config.json unter "vita" eintragen. Optional */}
-      {config.bereiche.hintergrund && (
-        <section id="hintergrund" className="py-16 px-6">
+      {/* === BEREICH 5: ANGEBOT (Aufklappende Buttons) === */}
+      {config.bereiche.angebot && (
+        <section id="angebot" className="py-16 px-6">
           <div className="max-w-2xl mx-auto text-center space-y-8">
-            <h2 className="text-3xl font-light tracking-wide">Hintergrund</h2>
+            <h2 className="text-3xl font-light tracking-wide">Angebot</h2>
             <div className="w-12 h-px bg-white/30 mx-auto" />
 
-            <div className="space-y-6 text-left">
+            <p className="text-sm leading-relaxed opacity-85">
+              <span className="font-bold">{config.claim}</span>
+              <br />
+              <span className="text-xs opacity-60">{config.subclaim}</span>
+            </p>
+
+            <p className="text-xs opacity-50">Ich arbeite stundenbasiert – für dich – in folgenden Bereichen:</p>
+
+            <div className="space-y-3 pt-4 text-left">
+              {angebote.map((angebot) => (
+                <div key={angebot.id}>
+                  <button
+                    onClick={() => toggleOffer(angebot.id)}
+                    className="w-full py-3.5 px-6 rounded-full border border-white/40 bg-white/5 backdrop-blur-sm
+                               text-white text-sm tracking-wide text-center
+                               hover:bg-white/15 hover:border-white/60 transition-all duration-300 flex items-center justify-between"
+                    style={{ color: "var(--ccq-light)" }}
+                  >
+                    <span>{angebot.title}</span>
+                    <span className="text-xs opacity-50">{openOffer === angebot.id ? "▲" : "▼"}</span>
+                  </button>
+
+                  <div
+                    className={`overflow-hidden transition-all duration-500 ${
+                      openOffer === angebot.id ? "max-h-96 opacity-100 mt-3" : "max-h-0 opacity-0"
+                    }`}
+                  >
+                    <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/20 text-sm leading-relaxed">
+                      <p className="font-bold mb-2">{angebot.kurz}</p>
+                      <p className="opacity-85">{angebot.lang}</p>
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+
+            {/* VITA */}
+            <div className="pt-8 space-y-6 text-left">
+              <p className="text-xs opacity-50 tracking-wider uppercase">Mein Hintergrund</p>
               {config.vita.map((item) => (
                 <div key={item.year} className="flex gap-4">
                   <div className="w-16 text-right text-xs opacity-50 pt-1 tracking-wider">{item.year}</div>
                   <div className="flex-1 text-sm opacity-85 leading-relaxed">{item.text}</div>
                 </div>
               ))}
-            </div>
-
-            <div className="pt-6 space-y-4 text-left">
-              <p className="text-sm leading-relaxed opacity-85">
+              <p className="text-sm leading-relaxed opacity-85 pt-4">
                 Als Assistenz über mehrere Jahre und auch heute virtuell für Sie erreichbar. Mit dem Wissen, dass das Wissen nie an einer Stelle stehen bleibt.
               </p>
             </div>
-          </div>
-        </section>
-      )}
 
-      {/* === BEREICH 6: ANGEBOT (CTA) === */}
-      {/* ANPASSEN: E-Mail in ccq-config.json unter "meta.email" eintragen */}
-      {config.bereiche.angebot && (
-        <section
-          id="angebot"
-          className="py-16 px-6"
-          style={{ backgroundColor: "var(--ccq-secondary)" }}
-        >
-          <div className="max-w-2xl mx-auto text-center space-y-8">
-            <h2 className="text-3xl font-light tracking-wide">Angebot</h2>
-            <div className="w-12 h-px bg-white/30 mx-auto" />
-
-            <p className="text-sm leading-relaxed opacity-85">
-              Sie brauchen Unterstützung? Ich bin virtuell für Sie da.
-            </p>
-
-            <div className="pt-4 space-y-3">
+            {/* CTA */}
+            <div className="pt-8">
               <a
                 href={`mailto:${config.meta.email}?subject=Termin%20vereinbaren`}
                 className="inline-block w-full py-3.5 px-6 rounded-full border border-white/40 bg-white/5
@@ -223,8 +278,30 @@ export default function Home() {
         </section>
       )}
 
+      {/* === BEREICH 6: SPECIALS (Leer für PDFs) === */}
+      {config.bereiche.specials && (
+        <section
+          id="specials"
+          className="py-16 px-6"
+          style={{ backgroundColor: "var(--ccq-secondary)" }}
+        >
+          <div className="max-w-2xl mx-auto text-center space-y-8">
+            <h2 className="text-3xl font-light tracking-wide">Specials</h2>
+            <div className="w-12 h-px bg-white/30 mx-auto" />
+
+            <p className="text-sm opacity-60">Hier erscheinen bald Downloads, Checklisten und Extras für dich.</p>
+
+            <div className="py-8">
+              <div className="inline-block p-8 rounded-xl border-2 border-dashed border-white/20 bg-white/5">
+                <span className="text-4xl opacity-30">📥</span>
+                <p className="mt-4 text-sm opacity-50">Demnächst verfügbar</p>
+              </div>
+            </div>
+          </div>
+        </section>
+      )}
+
       {/* === BEREICH 7: KONTAKT === */}
-      {/* Immer gleich — nur QR-Code und Meta-Daten wechseln */}
       {config.bereiche.kontakt && (
         <section id="kontakt" className="py-16 px-6">
           <div className="max-w-2xl mx-auto text-center space-y-6">
@@ -266,40 +343,7 @@ export default function Home() {
         </section>
       )}
 
-      {/* === BEREICH 8: SPECIALS (Meine Überzeugung) === */}
-      {/* ANPASSEN: Text in ccq-config.json unter "specials" eintragen. Optional ausblendbar */}
-      {config.bereiche.specials && (
-        <section
-          className="py-16 px-6"
-          style={{ backgroundColor: "var(--ccq-secondary)" }}
-        >
-          <div className="max-w-2xl mx-auto text-center space-y-8">
-            <h2 className="text-3xl font-light tracking-wide">Meine Überzeugung</h2>
-            <div className="w-12 h-px bg-white/30 mx-auto" />
-
-            <div className="text-left space-y-6 text-sm leading-relaxed">
-              <p>Kommunikation verbindet. Kommunikation ist viel mehr – denn sie ist überall.</p>
-
-              <p>In einem Jahrzehnt im Kundenkontakt und in der Mitarbeiterbetreuung lernte ich: Kommunikation ist nicht nur direkter Kontakt – sie ist auch die Art wie man sich präsentiert. Kommunikation geschieht auch durch Bilder – weshalb mich Mediendesign seit Jahren begleitet.</p>
-
-              <p>Gleichzeitig spielt Psychologie eine zentrale Rolle – denn nur wer versteht welche Bedürfnisse, Persönlichkeiten, Einschränkungen und Besonderheiten auf jeder Seite stehen, kann Kommunikation wirklich anpassen. Nur dieses tiefgehende Wissen macht Kommunikation wirklich erreichbar – für eine Zielgruppe, individuell oder für jeden.</p>
-
-              <p>Doch Menschlichkeit, Feinfühligkeit oder Empathie ist heute leider nicht alleine tragbar – es tut mir leid aber es ist die Wahrheit die keiner ausspricht. Weil Wissen mit der Zeit geht, kam die Technik hinzu – und gerade sie hat vieles zerstört. Weshalb ich mir gezielt technisches Know-how aneignete – in IT, Programmen, Darstellungen und dem Wissen von heute und morgen – um die Technik so zu nutzen dass das Wesentliche, was normalerweise untergeht, endlich sichtbar wird.</p>
-
-              <p>Das alles ist nicht getrennt – sondern wichtig miteinander zu verknüpfen. Wissen ist Macht – aber wertlos wenn es nicht richtig eingepflegt, verwaltet und gespeichert wird, um es so zu verändern dass es den grössten Erfolg bringt.</p>
-
-              <p>Erfolg ist für jeden Menschen, jeden Betrieb, jedes Unternehmen etwas anderes. Doch so unterschiedlich jeder sein mag – am Ende geht es immer darum: das Richtige festhalten, es verstehen, verbessern und dann mutig loslegen. Nicht weil wir nicht gut genug sind – sondern weil wir die beste Version von uns und dem was wir aufgebaut haben leben wollen.</p>
-
-              <p>Ein Bedürfnis das jeder in sich trägt: verstanden werden. Gesehen werden.</p>
-
-              <p className="font-bold text-base text-center pt-2">Dieses Bedürfnis ist meine Motivation.</p>
-            </div>
-          </div>
-        </section>
-      )}
-
-      {/* === BEREICH 9: CCQ WERBUNG === */}
-      {/* Immer gleich — nie ändern */}
+      {/* === BEREICH 8: CCQ WERBUNG === */}
       <section className="py-10 px-6 border-t border-white/10">
         <div className="max-w-2xl mx-auto text-center space-y-2">
           <p className="text-[10px] tracking-[0.3em] uppercase opacity-40">CCQ / CHARACTERCARD</p>
@@ -307,7 +351,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* === BEREICH 10: FOOTER === */}
+      {/* === BEREICH 9: FOOTER === */}
       <footer className="py-6 px-4 text-center border-t border-white/10">
         <p className="text-[10px] tracking-wider opacity-30">© 2026 {config.meta.name}</p>
       </footer>
