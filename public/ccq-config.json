@@ -16,11 +16,12 @@
   },
   "bereiche": {
     "profil": true,
-    "charakter": true,
-    "hintergrund": true,
     "angebot": true,
-    "kontakt": true,
-    "specials": true
+    "zielgruppe": true,
+    "wissen": true,
+    "charakter": true,
+    "spezial": true,
+    "kontakt": true
   },
   "leistungen": [
     "Kundenservice",

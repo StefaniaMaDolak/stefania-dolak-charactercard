@@ -20,11 +20,12 @@ export interface CCQConfig {
   };
   bereiche: {
     profil: boolean;
-    charakter: boolean;
-    hintergrund: boolean;
     angebot: boolean;
+    zielgruppe: boolean;
+    wissen: boolean;
+    charakter: boolean;
+    spezial: boolean;
     kontakt: boolean;
-    specials: boolean;
   };
   leistungen: string[];
   vita: { year: string; text: string }[];

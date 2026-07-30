@@ -74,7 +74,7 @@ export default function Home() {
       className="min-h-screen text-[var(--ccq-dark)] font-sans"
       style={{ backgroundColor: "var(--ccq-primary)" }}
     >
-      {/* === BEREICH 1: FLIP-CARD VISITENKARTE === */}
+      {/* FLIP-CARD VISITENKARTE */}
       <section className="py-12 px-6 flex flex-col items-center">
         <div
           className="relative cursor-pointer"
@@ -121,14 +121,16 @@ export default function Home() {
         </p>
       </section>
 
-      {/* === BEREICH 2: NAVIGATION === */}
+      {/* NAVIGATION */}
       <section className="px-6 pb-8">
         <div className="max-w-md mx-auto space-y-3">
           {[
             ...(config.bereiche.profil ? [{ label: "Profil", id: "profil" }] : []),
-            ...(config.bereiche.charakter ? [{ label: "Charakter", id: "charakter" }] : []),
             ...(config.bereiche.angebot ? [{ label: "Angebot", id: "angebot" }] : []),
-            ...(config.bereiche.specials ? [{ label: "Specials", id: "specials" }] : []),
+            ...(config.bereiche.zielgruppe ? [{ label: "Zielgruppe", id: "zielgruppe" }] : []),
+            ...(config.bereiche.wissen ? [{ label: "Wissen", id: "wissen" }] : []),
+            ...(config.bereiche.charakter ? [{ label: "Charakter", id: "charakter" }] : []),
+            ...(config.bereiche.spezial ? [{ label: "Spezial", id: "spezial" }] : []),
             ...(config.bereiche.kontakt ? [{ label: "Kontakt", id: "kontakt" }] : []),
           ].map((item) => (
             <button
@@ -145,7 +147,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* === BEREICH 3: PROFIL (Kommunikations-Text) === */}
+      {/* PROFIL */}
       {config.bereiche.profil && (
         <section id="profil" className="py-16 px-6">
           <div className="max-w-2xl mx-auto text-center space-y-8">
@@ -179,35 +181,13 @@ export default function Home() {
         </section>
       )}
 
-      {/* === BEREICH 4: CHARAKTER === */}
-      {config.bereiche.charakter && (
+      {/* ANGEBOT */}
+      {config.bereiche.angebot && (
         <section
-          id="charakter"
+          id="angebot"
           className="py-16 px-6"
           style={{ backgroundColor: "var(--ccq-secondary)" }}
         >
-          <div className="max-w-2xl mx-auto text-center space-y-8">
-            <h2 className="text-3xl font-light tracking-wide">Charakter</h2>
-            <div className="w-12 h-px bg-white/30 mx-auto" />
-
-            <div className="text-left space-y-6 text-sm leading-relaxed">
-              <p className="font-bold text-base">Ich bleibe nicht stehen.</p>
-
-              <p>Mir reicht die Oberfläche nicht. Ich muss den Hintergrund verstehen – denn nur wer die Tiefe kennt, kann an der Oberfläche wirklich wirken.</p>
-
-              <p>Gerade weil ich als Mensch und Persönlichkeit sensibel bin, habe ich ein feines Gespür für Dynamiken, Menschen und Projekte. Kann das anstrengend sein? Ja. Bleibe ich deshalb stehen? Nein. Ich gehe weiter – lerne von jeder Seite, verstehe jeden Aspekt, um für das grosse Ganze gewappnet zu sein.</p>
-
-              <p>Ich bleibe nicht Jahre in einem Bereich um ihn blind auswendig zu können. Ich wechsle die Perspektive – um den Blick für das ganze System zu behalten. Denn wer mehrere Seiten kennt, denkt vernetzter.</p>
-
-              <p className="italic opacity-70">Um es in meiner Tanzsprache zu sagen: Warum jahrelang nur einen Tanzstil lernen – wenn ein anderer Stil dir beibringt wie man führt und sich führen lässt? Skills die auf jeden Tanz – und jede Zusammenarbeit – anwendbar sind.</p>
-            </div>
-          </div>
-        </section>
-      )}
-
-      {/* === BEREICH 5: ANGEBOT (Aufklappende Buttons) === */}
-      {config.bereiche.angebot && (
-        <section id="angebot" className="py-16 px-6">
           <div className="max-w-2xl mx-auto text-center space-y-8">
             <h2 className="text-3xl font-light tracking-wide">Angebot</h2>
             <div className="w-12 h-px bg-white/30 mx-auto" />
@@ -248,20 +228,6 @@ export default function Home() {
               ))}
             </div>
 
-            {/* VITA */}
-            <div className="pt-8 space-y-6 text-left">
-              <p className="text-xs opacity-50 tracking-wider uppercase">Mein Hintergrund</p>
-              {config.vita.map((item) => (
-                <div key={item.year} className="flex gap-4">
-                  <div className="w-16 text-right text-xs opacity-50 pt-1 tracking-wider">{item.year}</div>
-                  <div className="flex-1 text-sm opacity-85 leading-relaxed">{item.text}</div>
-                </div>
-              ))}
-              <p className="text-sm leading-relaxed opacity-85 pt-4">
-                Als Assistenz über mehrere Jahre und auch heute virtuell für Sie erreichbar. Mit dem Wissen, dass das Wissen nie an einer Stelle stehen bleibt.
-              </p>
-            </div>
-
             {/* CTA */}
             <div className="pt-8">
               <a
@@ -278,15 +244,109 @@ export default function Home() {
         </section>
       )}
 
-      {/* === BEREICH 6: SPECIALS (Leer für PDFs) === */}
-      {config.bereiche.specials && (
+      {/* ZIELGRUPPE */}
+      {config.bereiche.zielgruppe && (
+        <section id="zielgruppe" className="py-16 px-6">
+          <div className="max-w-2xl mx-auto text-center space-y-8">
+            <h2 className="text-3xl font-light tracking-wide">Zielgruppe</h2>
+            <div className="w-12 h-px bg-white/30 mx-auto" />
+
+            <div className="space-y-6 text-left text-sm leading-relaxed">
+              <p>Für wen ich arbeite:</p>
+
+              <div className="space-y-3">
+                {[
+                  {
+                    wer: "Selbstständige & Kleinunternehmen",
+                    was: "Du hast keine Zeit für Verwaltung, Kommunikation und Webseite – aber du brauchst sie. Ich übernehme.",
+                  },
+                  {
+                    wer: "Praxen & Therapeuten",
+                    was: "Kundenkontakt, Terminorganisation, Webseite und das Gefühl, alles allein machen zu müssen. Ich entlaste.",
+                  },
+                  {
+                    wer: "Restaurants & Gastronomie",
+                    was: "Reservierungen, Kommunikation, digitale Präsenz. Ich sorge dafür, dass deine Gäste sich willkommen fühlen.",
+                  },
+                  {
+                    wer: "Teams & Start-ups",
+                    was: "Interne Kommunikation, Onboarding, Prozesse. Ich bin die Brücke zwischen Chaos und Struktur.",
+                  },
+                ].map((item) => (
+                  <div
+                    key={item.wer}
+                    className="p-5 rounded-xl bg-white/5 border border-white/20"
+                  >
+                    <p className="font-bold mb-1">{item.wer}</p>
+                    <p className="opacity-70 text-xs leading-relaxed">{item.was}</p>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </section>
+      )}
+
+      {/* WISSEN (Vita + Hintergrund) */}
+      {config.bereiche.wissen && (
         <section
-          id="specials"
+          id="wissen"
           className="py-16 px-6"
           style={{ backgroundColor: "var(--ccq-secondary)" }}
         >
           <div className="max-w-2xl mx-auto text-center space-y-8">
-            <h2 className="text-3xl font-light tracking-wide">Specials</h2>
+            <h2 className="text-3xl font-light tracking-wide">Wissen</h2>
+            <div className="w-12 h-px bg-white/30 mx-auto" />
+
+            <div className="space-y-6 text-left">
+              {config.vita.map((item) => (
+                <div key={item.year} className="flex gap-4">
+                  <div className="w-16 text-right text-xs opacity-50 pt-1 tracking-wider">{item.year}</div>
+                  <div className="flex-1 text-sm opacity-85 leading-relaxed">{item.text}</div>
+                </div>
+              ))}
+            </div>
+
+            <div className="pt-6 text-left">
+              <p className="text-sm leading-relaxed opacity-85">
+                Als Assistenz über mehrere Jahre und auch heute virtuell für Sie erreichbar. Mit dem Wissen, dass das Wissen nie an einer Stelle stehen bleibt.
+              </p>
+            </div>
+          </div>
+        </section>
+      )}
+
+      {/* CHARAKTER */}
+      {config.bereiche.charakter && (
+        <section id="charakter" className="py-16 px-6">
+          <div className="max-w-2xl mx-auto text-center space-y-8">
+            <h2 className="text-3xl font-light tracking-wide">Charakter</h2>
+            <div className="w-12 h-px bg-white/30 mx-auto" />
+
+            <div className="text-left space-y-6 text-sm leading-relaxed">
+              <p className="font-bold text-base">Ich bleibe nicht stehen.</p>
+
+              <p>Mir reicht die Oberfläche nicht. Ich muss den Hintergrund verstehen – denn nur wer die Tiefe kennt, kann an der Oberfläche wirklich wirken.</p>
+
+              <p>Gerade weil ich als Mensch und Persönlichkeit sensibel bin, habe ich ein feines Gespür für Dynamiken, Menschen und Projekte. Kann das anstrengend sein? Ja. Bleibe ich deshalb stehen? Nein. Ich gehe weiter – lerne von jeder Seite, verstehe jeden Aspekt, um für das grosse Ganze gewappnet zu sein.</p>
+
+              <p>Ich bleibe nicht Jahre in einem Bereich um ihn blind auswendig zu können. Ich wechsle die Perspektive – um den Blick für das ganze System zu behalten. Denn wer mehrere Seiten kennt, denkt vernetzter.</p>
+
+              <p className="italic opacity-70">Um es in meiner Tanzsprache zu sagen: Warum jahrelang nur einen Tanzstil lernen – wenn ein anderer Stil dir beibringt wie man führt und sich führen lässt? Skills die auf jeden Tanz – und jede Zusammenarbeit – anwendbar sind.</p>
+            </div>
+          </div>
+        </section>
+      )}
+
+      {/* SPEZIAL (leer für PDFs) */}
+      {config.bereiche.spezial && (
+        <section
+          id="spezial"
+          className="py-16 px-6"
+          style={{ backgroundColor: "var(--ccq-secondary)" }}
+        >
+          <div className="max-w-2xl mx-auto text-center space-y-8">
+            <h2 className="text-3xl font-light tracking-wide">Spezial</h2>
             <div className="w-12 h-px bg-white/30 mx-auto" />
 
             <p className="text-sm opacity-60">Hier erscheinen bald Downloads, Checklisten und Extras für dich.</p>
@@ -301,7 +361,7 @@ export default function Home() {
         </section>
       )}
 
-      {/* === BEREICH 7: KONTAKT === */}
+      {/* KONTAKT */}
       {config.bereiche.kontakt && (
         <section id="kontakt" className="py-16 px-6">
           <div className="max-w-2xl mx-auto text-center space-y-6">
@@ -343,7 +403,7 @@ export default function Home() {
         </section>
       )}
 
-      {/* === BEREICH 8: CCQ WERBUNG === */}
+      {/* CCQ WERBUNG */}
       <section className="py-10 px-6 border-t border-white/10">
         <div className="max-w-2xl mx-auto text-center space-y-2">
           <p className="text-[10px] tracking-[0.3em] uppercase opacity-40">CCQ / CHARACTERCARD</p>
@@ -351,7 +411,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* === BEREICH 9: FOOTER === */}
+      {/* FOOTER */}
       <footer className="py-6 px-4 text-center border-t border-white/10">
         <p className="text-[10px] tracking-wider opacity-30">© 2026 {config.meta.name}</p>
       </footer>
