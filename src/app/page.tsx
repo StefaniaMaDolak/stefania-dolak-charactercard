@@ -128,7 +128,7 @@ export default function Home() {
             ...(config.bereiche.profil ? [{ label: "Profil", id: "profil" }] : []),
             ...(config.bereiche.angebot ? [{ label: "Angebot", id: "angebot" }] : []),
             ...(config.bereiche.zielgruppe ? [{ label: "Zielgruppe", id: "zielgruppe" }] : []),
-            ...(config.bereiche.wissen ? [{ label: "Wissen", id: "wissen" }] : []),
+            ...(config.bereiche.wissen ? [{ label: "Hintergrund", id: "hintergrund" }] : []),
             ...(config.bereiche.charakter ? [{ label: "Charakter", id: "charakter" }] : []),
             ...(config.bereiche.spezial ? [{ label: "Spezial", id: "spezial" }] : []),
             ...(config.bereiche.kontakt ? [{ label: "Kontakt", id: "kontakt" }] : []),
@@ -228,7 +228,6 @@ export default function Home() {
               ))}
             </div>
 
-            {/* CTA */}
             <div className="pt-8">
               <a
                 href={`mailto:${config.meta.email}?subject=Termin%20vereinbaren`}
@@ -287,15 +286,15 @@ export default function Home() {
         </section>
       )}
 
-      {/* WISSEN (Vita + Hintergrund) */}
+      {/* HINTERGRUND */}
       {config.bereiche.wissen && (
         <section
-          id="wissen"
+          id="hintergrund"
           className="py-16 px-6"
           style={{ backgroundColor: "var(--ccq-secondary)" }}
         >
           <div className="max-w-2xl mx-auto text-center space-y-8">
-            <h2 className="text-3xl font-light tracking-wide">Wissen</h2>
+            <h2 className="text-3xl font-light tracking-wide">Hintergrund</h2>
             <div className="w-12 h-px bg-white/30 mx-auto" />
 
             <div className="space-y-6 text-left">
@@ -338,7 +337,7 @@ export default function Home() {
         </section>
       )}
 
-      {/* SPEZIAL (leer für PDFs) */}
+      {/* SPEZIAL */}
       {config.bereiche.spezial && (
         <section
           id="spezial"
