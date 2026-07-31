@@ -302,7 +302,6 @@ export default function Home() {
         <div className="max-w-2xl mx-auto text-center space-y-10">
           <div className="space-y-4">
             <p className="text-[11px] tracking-[0.3em] uppercase opacity-40">ARBEIT</p>
-            <h2 className="text-2xl font-light tracking-wide">Team</h2>
           </div>
 
           <div className="text-left space-y-6 text-sm leading-relaxed" style={{ color: "var(--ccq-dark)" }}>
