@@ -12,12 +12,12 @@
   "meta": {
     "name": "Stefania Dolak",
     "titel": "Kommunikationsmanagement",
-    "email": "stefania.dolak@mail.ch"
+    "email": "stefaniamadolak@gmail.com"
   },
   "bereiche": {
     "profil": true,
     "angebot": true,
-    "zielgruppe": true,
+    "zielgruppe": false,
     "wissen": true,
     "charakter": true,
     "spezial": true,
