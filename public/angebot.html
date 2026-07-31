@@ -1,0 +1,585 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Angebot — Stefania Dolak | Kommunikations Management</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  
+  :root {
+    --gold: #C4BDB0;
+    --gold-light: #D4CFC7;
+    --navy: #5C5648;
+    --navy-light: #6B6556;
+    --text: #2D2D2D;
+    --text-light: #666666;
+    --bg: #FFFFFF;
+    --bg-warm: #F5F0EA;
+  }
+  
+  body {
+    font-family: 'Inter', sans-serif;
+    color: var(--text);
+    background: #E5E5E5;
+    line-height: 1.5;
+  }
+  
+  .page {
+    width: 210mm;
+    min-height: 297mm;
+    margin: 20px auto;
+    background: var(--bg);
+    padding: 25mm 20mm;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+    position: relative;
+  }
+  
+  @media print {
+    body { background: white; }
+    .page { margin: 0; box-shadow: none; width: 100%; }
+  }
+  
+  /* HEADER */
+  .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 8mm;
+    padding-bottom: 4mm;
+    border-bottom: 1.5px solid var(--gold);
+  }
+  
+  .logo-area {
+    display: flex;
+    align-items: center;
+    gap: 4mm;
+  }
+  
+  .logo-circle {
+    width: 20mm;
+    height: 20mm;
+    border: 2px solid var(--navy);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Playfair Display', serif;
+    font-size: 11pt;
+    font-weight: 700;
+    color: var(--navy);
+    position: relative;
+  }
+  
+  .logo-circle::after {
+    content: '';
+    position: absolute;
+    bottom: -4px;
+    right: -4px;
+    width: 8mm;
+    height: 8mm;
+    border: 2px solid var(--gold);
+    border-radius: 50%;
+  }
+  
+  .logo-text h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 13pt;
+    font-weight: 600;
+    color: var(--navy);
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+  }
+  
+  .logo-text .subtitle {
+    font-size: 7pt;
+    color: var(--gold);
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    font-weight: 500;
+  }
+  
+  .logo-text .tagline {
+    font-size: 7pt;
+    color: var(--text-light);
+    margin-top: 1mm;
+  }
+  
+  .contact-info {
+    text-align: right;
+    font-size: 7pt;
+    color: var(--text-light);
+    line-height: 2;
+  }
+  
+  /* HERO */
+  .hero {
+    display: flex;
+    gap: 8mm;
+    margin-bottom: 8mm;
+    align-items: flex-start;
+  }
+  
+  .hero-text {
+    flex: 1;
+  }
+  
+  .hero-text h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 18pt;
+    font-weight: 600;
+    color: var(--navy);
+    line-height: 1.2;
+    margin-bottom: 4mm;
+  }
+  
+  .hero-text .gold-line {
+    width: 25mm;
+    height: 2px;
+    background: var(--gold);
+    margin-bottom: 5mm;
+  }
+  
+  .hero-text p {
+    font-size: 9pt;
+    color: var(--text-light);
+    line-height: 1.6;
+    margin-bottom: 3mm;
+  }
+  
+  .hero-text .highlight {
+    font-size: 9pt;
+    color: var(--navy);
+    font-weight: 500;
+    line-height: 1.6;
+  }
+  
+  .hero-photo {
+    width: 65mm;
+    height: 50mm;
+    position: relative;
+    flex-shrink: 0;
+    overflow: hidden;
+  }
+  
+  .hero-photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    clip-path: polygon(15% 0%, 100% 0%, 100% 100%, 0% 100%);
+  }
+  
+  .hero-photo::before {
+    content: '';
+    position: absolute;
+    top: 2px;
+    left: 2px;
+    width: 100%;
+    height: 100%;
+    border: 2px solid var(--gold);
+    clip-path: polygon(15% 0%, 100% 0%, 100% 100%, 0% 100%);
+    z-index: 1;
+    pointer-events: none;
+  }
+  
+  /* SERVICES */
+  .services {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 4mm;
+    margin-bottom: 8mm;
+  }
+  
+  .service-card {
+    padding: 4mm;
+  }
+  
+  .service-icon {
+    width: 10mm;
+    height: 10mm;
+    margin-bottom: 3mm;
+  }
+  
+  .service-icon svg {
+    width: 100%;
+    height: 100%;
+    stroke: var(--gold);
+    stroke-width: 1.5;
+    fill: none;
+  }
+  
+  .service-card h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 8pt;
+    font-weight: 600;
+    color: var(--navy);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 3mm;
+    line-height: 1.3;
+  }
+  
+  .service-card ul {
+    list-style: none;
+  }
+  
+  .service-card li {
+    font-size: 7pt;
+    color: var(--text-light);
+    line-height: 1.5;
+    padding-left: 3mm;
+    position: relative;
+    margin-bottom: 1.5mm;
+  }
+  
+  .service-card li::before {
+    content: '◎';
+    position: absolute;
+    left: 0;
+    color: var(--gold);
+    font-size: 6pt;
+  }
+  
+  /* BOTTOM BOXES */
+  .bottom-section {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 5mm;
+    margin-bottom: 6mm;
+  }
+  
+  .box {
+    border-radius: 4mm;
+    overflow: hidden;
+    background: var(--navy);
+    color: white;
+  }
+  
+  .box-header {
+    display: flex;
+    align-items: center;
+    gap: 2mm;
+    padding: 3mm 4mm;
+    background: rgba(255,255,255,0.1);
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+  }
+  
+  .box-header .icon-circle {
+    width: 6mm;
+    height: 6mm;
+    border: 1.5px solid var(--gold);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 7pt;
+    color: var(--gold);
+  }
+  
+  .box-header h4 {
+    font-family: 'Playfair Display', serif;
+    font-size: 9pt;
+    font-weight: 600;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+  }
+  
+  .box-content {
+    padding: 4mm;
+  }
+  
+  .box-content ul {
+    list-style: none;
+  }
+  
+  .box-content li {
+    font-size: 7pt;
+    line-height: 1.5;
+    padding-left: 3mm;
+    position: relative;
+    margin-bottom: 2mm;
+    color: rgba(255,255,255,0.85);
+  }
+  
+  .box-content li::before {
+    content: '◎';
+    position: absolute;
+    left: 0;
+    color: var(--gold);
+    font-size: 6pt;
+  }
+  
+  .box-content .availability {
+    margin-top: 3mm;
+    padding-top: 3mm;
+    border-top: 1px solid rgba(255,255,255,0.1);
+  }
+  
+  .box-content .availability h5 {
+    font-size: 7pt;
+    font-weight: 600;
+    margin-bottom: 1mm;
+    display: flex;
+    align-items: center;
+    gap: 2mm;
+  }
+  
+  .box-content .availability h5 .icon {
+    width: 5mm;
+    height: 5mm;
+    border: 1px solid var(--gold);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 5pt;
+    color: var(--gold);
+  }
+  
+  /* CONDITIONS TABLE */
+  .conditions-table {
+    width: 100%;
+    font-size: 7pt;
+  }
+  
+  .conditions-table .row {
+    display: flex;
+    justify-content: space-between;
+    padding: 2mm 0;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+  }
+  
+  .conditions-table .row:last-child {
+    border-bottom: none;
+  }
+  
+  .conditions-table .label {
+    color: rgba(255,255,255,0.7);
+  }
+  
+  .conditions-table .value {
+    font-weight: 500;
+    text-align: right;
+  }
+  
+  .conditions-table .highlight-value {
+    color: var(--gold);
+    font-size: 10pt;
+    font-weight: 700;
+  }
+  
+  .conditions-table .note {
+    font-size: 6pt;
+    color: rgba(255,255,255,0.5);
+    margin-top: 2mm;
+    padding: 2mm;
+    background: rgba(255,255,255,0.05);
+    border-radius: 2mm;
+    display: flex;
+    gap: 2mm;
+    align-items: flex-start;
+  }
+  
+  .conditions-table .note .info-icon {
+    width: 4mm;
+    height: 4mm;
+    border: 1px solid var(--gold);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 5pt;
+    color: var(--gold);
+    flex-shrink: 0;
+  }
+  
+  /* FOOTER QUOTE */
+  .footer-quote {
+    text-align: center;
+    padding-top: 4mm;
+    border-top: 1px solid var(--gold);
+    margin-top: 2mm;
+  }
+  
+  .footer-quote .quote-mark {
+    font-family: 'Playfair Display', serif;
+    font-size: 20pt;
+    color: var(--gold);
+    line-height: 0.5;
+    margin-bottom: 2mm;
+  }
+  
+  .footer-quote p {
+    font-size: 8pt;
+    color: var(--text-light);
+    font-style: italic;
+    line-height: 1.5;
+    max-width: 140mm;
+    margin: 0 auto;
+  }
+  
+  .footer-quote .signature {
+    font-family: 'Playfair Display', serif;
+    font-size: 10pt;
+    color: var(--gold);
+    margin-top: 3mm;
+    font-style: italic;
+  }
+</style>
+</head>
+<body>
+
+<div class="page">
+
+  <!-- HEADER -->
+  <div class="header">
+    <div class="logo-area">
+      <div class="logo-circle">KM</div>
+      <div class="logo-text">
+        <h1>Kommunikations Management</h1>
+        <div class="subtitle">Stefania Dolak</div>
+        <div class="tagline">Verwaltung · Psychologie · Systemik</div>
+      </div>
+    </div>
+    <div class="contact-info">
+      <div>✉ stefania.dolak@mail.ch</div>
+      <div>🌐 stefania-dolak-charactercard.vercel.app</div>
+    </div>
+  </div>
+
+  <!-- HERO -->
+  <div class="hero">
+    <div class="hero-text">
+      <h2>VERWALTUNG · PSYCHOLOGIE · SYSTEMIK</h2>
+      <div class="gold-line"></div>
+      <p>Ich verbinde Struktur mit Menschlichkeit. Für Kommunikation, die wirklich ankommt.</p>
+      <div class="highlight">Stundenbasiert — für dich.<br>Kundenservice · Mitarbeiterbetreuung · Projektanalyse · Webseiten · CharacterCard</div>
+    </div>
+    <div class="hero-photo">
+      <img src="angebotsseite-foto.jpg" alt="Stefania Dolak">
+    </div>
+  </div>
+
+  <!-- SERVICES -->
+  <div class="services">
+    
+    <div class="service-card">
+      <div class="service-icon">
+        <svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+      </div>
+      <h3>Kunden<br>Service</h3>
+      <ul>
+        <li>Kommunikation per E-Mail, Telefon, Chat</li>
+        <li>Anfragen, Beschwerden, Follow-ups</li>
+        <li>Mit Gespür zwischen den Zeilen</li>
+      </ul>
+    </div>
+    
+    <div class="service-card">
+      <div class="service-icon">
+        <svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+      </div>
+      <h3>Mitarbeiter<br>Betreuung</h3>
+      <ul>
+        <li>Onboarding & Updates</li>
+        <li>Interne Kommunikation</li>
+        <li>Mit psychologischem Feingefühl</li>
+      </ul>
+    </div>
+    
+    <div class="service-card">
+      <div class="service-icon">
+        <svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
+      </div>
+      <h3>Projekt-<br>analyse</h3>
+      <ul>
+        <li>Lage analysieren</li>
+        <li>Stolpersteine identifizieren</li>
+        <li>Klaren Plan entwickeln</li>
+      </ul>
+    </div>
+    
+    <div class="service-card">
+      <div class="service-icon">
+        <svg viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+      </div>
+      <h3>Webseite &amp;<br>CCQ</h3>
+      <ul>
+        <li>Webseitenanalyse & Erstellung</li>
+        <li>CharacterCard Anpassung</li>
+        <li>Digitale Visitenkarte für dich</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- BOTTOM BOXES -->
+  <div class="bottom-section">
+    <div class="box">
+      <div class="box-header">
+        <div class="icon-circle">👤</div>
+        <h4>Hintergrund &amp; Expertise</h4>
+      </div>
+      <div class="box-content">
+        <ul>
+          <li>2014–2024: 10 Jahre kaufmännisch & medizinisch</li>
+          <li>2023: Psychologische Beraterin (VFP zertifiziert)</li>
+          <li>2024: Systemischer Coach (zertifiziert)</li>
+          <li>2025: Selbständig — Resilienz & Kommunikation</li>
+          <li>Sensibel, vernetzt, pragmatisch</li>
+        </ul>
+        <div class="availability">
+          <h5><span class="icon">📅</span> Verfügbarkeit</h5>
+          <ul>
+            <li>Remote, deutschlandweit & Schweiz</li>
+            <li>Flexible Zeiteinteilung</li>
+            <li>Auch Abendstunden</li>
+            <li>Langfristige Zusammenarbeit erwünscht</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    
+    <div class="box">
+      <div class="box-header">
+        <div class="icon-circle">€</div>
+        <h4>Konditionen</h4>
+      </div>
+      <div class="box-content">
+        <div class="conditions-table">
+          <div class="row">
+            <span class="label">STUNDENSATZ</span>
+            <span class="value highlight-value">38 € netto</span>
+          </div>
+          <div class="row">
+            <span class="label">ABRECHNUNG</span>
+            <span class="value">Monatlich, nach tatsächlichem Aufwand</span>
+          </div>
+          <div class="row">
+            <span class="label">ZEITERFASSUNG</span>
+            <span class="value">Transparent, minutengenau</span>
+          </div>
+          <div class="row">
+            <span class="label">VERTRAG</span>
+            <span class="value">Honorarbasis, eigene Rechnungsstellung</span>
+          </div>
+        </div>
+        <div class="note">
+          <span class="info-icon">i</span>
+          <span>Langfristige Zusammenarbeit mit festem Stundenkontingent möglich. Individuelle Vereinbarungen nach Absprache.</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <div class="footer-quote">
+    <div class="quote-mark">"</div>
+    <p>Ein Bedürfnis, das jeder in sich trägt: verstanden werden. Gesehen werden.<br>Dieses Bedürfnis ist meine Motivation.</p>
+    <div class="signature">— Stefania</div>
+  </div>
+
+</div>
+
+</body>
+</html>
