@@ -129,7 +129,7 @@ export default function Home() {
           </div>
           <div className="space-y-1 text-sm opacity-70">
             <p>(+41) 77 292 73 88</p>
-            <p className="lowercase">stefaniamadolak@gmail.com</p>
+            <p className="lowercase">stefania.dolak@mail.ch</p>
           </div>
         </div>
       </section>
@@ -170,12 +170,12 @@ export default function Home() {
 
       {/* ANGEBOT */}
       <section id="angebot" className="relative py-20 px-6 overflow-hidden">
-        {/* Hintergrund: Schreibtisch, extra dezent */}
+        {/* Hintergrund: Schreibtisch, dezent sichtbar */}
         <div
-          className="absolute inset-0 bg-cover bg-center opacity-4"
+          className="absolute inset-0 bg-cover bg-center opacity-8"
           style={{ backgroundImage: "url(/arbeitsplatz.jpg)" }}
         />
-        <div className="absolute inset-0" style={{ backgroundColor: "var(--ccq-light)", opacity: 0.96 }} />
+        <div className="absolute inset-0" style={{ backgroundColor: "var(--ccq-light)", opacity: 0.92 }} />
 
         <div className="relative max-w-2xl mx-auto text-center space-y-10">
           <div className="space-y-4">
@@ -230,7 +230,7 @@ export default function Home() {
           </div>
 
           <a
-            href="mailto:stefaniamadolak@gmail.com?subject=Termin%20vereinbaren"
+            href="mailto:stefania.dolak@mail.ch?subject=Termin%20vereinbaren"
             className="inline-block py-4 px-8 rounded-full text-xs tracking-[0.2em] uppercase border transition-all duration-300 hover:opacity-80"
             style={{
               borderColor: "var(--ccq-dark)",
@@ -325,12 +325,12 @@ export default function Home() {
 
       {/* CHARAKTER */}
       <section id="charakter" className="relative py-20 px-6 overflow-hidden">
-        {/* Hintergrund: Portrait, extra dezent */}
+        {/* Hintergrund: Portrait, dezent sichtbar */}
         <div
-          className="absolute inset-0 bg-cover bg-center opacity-3"
+          className="absolute inset-0 bg-cover bg-center opacity-6"
           style={{ backgroundImage: "url(/portrait.png)" }}
         />
-        <div className="absolute inset-0" style={{ backgroundColor: "var(--ccq-primary)", opacity: 0.97 }} />
+        <div className="absolute inset-0" style={{ backgroundColor: "var(--ccq-primary)", opacity: 0.94 }} />
 
         <div className="relative max-w-2xl mx-auto text-center space-y-10">
           <div className="space-y-4">
@@ -419,7 +419,7 @@ export default function Home() {
           </button>
 
           <div className="pt-4 space-y-2 text-sm opacity-60" style={{ color: "var(--ccq-light)" }}>
-            <p>stefaniamadolak@gmail.com</p>
+            <p>stefania.dolak@mail.ch</p>
             <p>(+41) 77 292 73 88</p>
           </div>
         </div>
