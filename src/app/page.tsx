@@ -143,7 +143,7 @@ export default function Home() {
               }}
             >
               <img
-                src="/portrait.png"
+                src="/visitenkarte-hinten.jpg"
                 alt="Stefania Dolak"
                 className="w-full h-full object-cover"
               />
