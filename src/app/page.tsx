@@ -167,12 +167,12 @@ export default function Home() {
 
       {/* ANGEBOT */}
       <section id="angebot" className="relative py-20 px-6 overflow-hidden">
-        {/* Hintergrund: Schreibtisch, dezent sichtbar */}
+        {/* Hintergrund: Schreibtisch, sichtbar */}
         <div
-          className="absolute inset-0 bg-cover bg-center opacity-8"
+          className="absolute inset-0 bg-cover bg-center opacity-30"
           style={{ backgroundImage: "url(/arbeitsplatz.jpg)" }}
         />
-        <div className="absolute inset-0" style={{ backgroundColor: "var(--ccq-light)", opacity: 0.92 }} />
+        <div className="absolute inset-0" style={{ backgroundColor: "var(--ccq-light)", opacity: 0.7 }} />
 
         <div className="relative max-w-2xl mx-auto text-center space-y-10">
           <div className="space-y-4">
@@ -322,12 +322,12 @@ export default function Home() {
 
       {/* CHARAKTER */}
       <section id="charakter" className="relative py-20 px-6 overflow-hidden">
-        {/* Hintergrund: Portrait, dezent sichtbar */}
+        {/* Hintergrund: Portrait, sichtbar */}
         <div
-          className="absolute inset-0 bg-cover bg-center opacity-6"
+          className="absolute inset-0 bg-cover bg-center opacity-30"
           style={{ backgroundImage: "url(/portrait.png)" }}
         />
-        <div className="absolute inset-0" style={{ backgroundColor: "var(--ccq-primary)", opacity: 0.94 }} />
+        <div className="absolute inset-0" style={{ backgroundColor: "var(--ccq-primary)", opacity: 0.7 }} />
 
         <div className="relative max-w-2xl mx-auto text-center space-y-10">
           <div className="space-y-4">
