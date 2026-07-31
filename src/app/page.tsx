@@ -85,8 +85,13 @@ export default function Home() {
       {/* HEADER / NAVIGATION */}
       <header className="sticky top-0 z-50 backdrop-blur-md bg-white/80 border-b border-[var(--ccq-primary)]/30">
         <div className="max-w-2xl mx-auto px-6 py-4 flex items-center justify-between">
-          <div className="text-xs tracking-[0.3em] uppercase font-medium" style={{ color: "var(--ccq-dark)" }}>
-            KM
+          {/* Mini QR-Code als Symbol */}
+          <div className="w-6 h-6 opacity-40">
+            <img
+              src="/stefania-qr.svg"
+              alt="CCQ"
+              className="w-full h-full"
+            />
           </div>
           <nav className="flex gap-4 overflow-x-auto">
             {["PROFIL", "ANGEBOT", "ARBEITSWEISE", "HINTERGRUND", "CHARAKTER", "SPEZIAL", "KONTAKT"].map((item) => (
