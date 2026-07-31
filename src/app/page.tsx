@@ -104,16 +104,9 @@ export default function Home() {
       </header>
 
       {/* HERO */}
-      <section className="relative py-20 px-6 text-center overflow-hidden">
-        {/* Hintergrundbild: Portrait, dezent */}
-        <div
-          className="absolute inset-0 bg-cover bg-center opacity-10"
-          style={{ backgroundImage: "url(/portrait.png)" }}
-        />
-        <div className="absolute inset-0" style={{ backgroundColor: "var(--ccq-light)", opacity: 0.9 }} />
-
-        <div className="relative max-w-md mx-auto space-y-6">
-          <div className="relative mx-auto" style={{ width: "200px", height: "200px" }}>
+      <section className="py-20 px-6 text-center">
+        <div className="max-w-md mx-auto space-y-6">
+          <div className="mx-auto" style={{ width: "200px", height: "200px" }}>
             <img
               src="/portrait.png"
               alt="Stefania Dolak"
@@ -137,15 +130,8 @@ export default function Home() {
       </section>
 
       {/* PROFIL */}
-      <section id="profil" className="relative py-20 px-6 overflow-hidden">
-        {/* Hintergrund: Arbeitsplatz, sehr dezent */}
-        <div
-          className="absolute inset-0 bg-cover bg-center opacity-5"
-          style={{ backgroundImage: "url(/arbeitsplatz.jpg)" }}
-        />
-        <div className="absolute inset-0" style={{ backgroundColor: "var(--ccq-primary)", opacity: 0.95 }} />
-
-        <div className="relative max-w-2xl mx-auto text-center space-y-10">
+      <section id="profil" className="py-20 px-6" style={{ backgroundColor: "var(--ccq-primary)" }}>
+        <div className="max-w-2xl mx-auto text-center space-y-10">
           <div className="space-y-4">
             <p className="text-[10px] tracking-[0.3em] uppercase opacity-40">PROFIL</p>
             <h2 className="text-2xl font-light tracking-wide leading-relaxed">
@@ -178,8 +164,15 @@ export default function Home() {
       </section>
 
       {/* ANGEBOT */}
-      <section id="angebot" className="py-20 px-6">
-        <div className="max-w-2xl mx-auto text-center space-y-10">
+      <section id="angebot" className="relative py-20 px-6 overflow-hidden">
+        {/* Hintergrund: Schreibtisch, extra dezent */}
+        <div
+          className="absolute inset-0 bg-cover bg-center opacity-4"
+          style={{ backgroundImage: "url(/arbeitsplatz.jpg)" }}
+        />
+        <div className="absolute inset-0" style={{ backgroundColor: "var(--ccq-light)", opacity: 0.96 }} />
+
+        <div className="relative max-w-2xl mx-auto text-center space-y-10">
           <div className="space-y-4">
             <p className="text-[10px] tracking-[0.3em] uppercase opacity-40">ANGEBOT</p>
             <h2 className="text-2xl font-light tracking-wide">
@@ -257,15 +250,8 @@ export default function Home() {
       </section>
 
       {/* ARBEITSWEISE */}
-      <section id="arbeitsweise" className="relative py-20 px-6 overflow-hidden">
-        {/* Hintergrund: Portrait, sehr dezent */}
-        <div
-          className="absolute inset-0 bg-cover bg-center opacity-8"
-          style={{ backgroundImage: "url(/portrait.png)" }}
-        />
-        <div className="absolute inset-0" style={{ backgroundColor: "var(--ccq-primary)", opacity: 0.95 }} />
-
-        <div className="relative max-w-2xl mx-auto text-center space-y-10">
+      <section id="arbeitsweise" className="py-20 px-6" style={{ backgroundColor: "var(--ccq-primary)" }}>
+        <div className="max-w-2xl mx-auto text-center space-y-10">
           <div className="space-y-4">
             <p className="text-[10px] tracking-[0.3em] uppercase opacity-40">ARBEITSWEISE</p>
             <h2 className="text-2xl font-light tracking-wide">Team</h2>
@@ -334,12 +320,12 @@ export default function Home() {
 
       {/* CHARAKTER */}
       <section id="charakter" className="relative py-20 px-6 overflow-hidden">
-        {/* Hintergrund: Arbeitsplatz, sehr dezent */}
+        {/* Hintergrund: Portrait, extra dezent */}
         <div
-          className="absolute inset-0 bg-cover bg-center opacity-5"
-          style={{ backgroundImage: "url(/arbeitsplatz.jpg)" }}
+          className="absolute inset-0 bg-cover bg-center opacity-3"
+          style={{ backgroundImage: "url(/portrait.png)" }}
         />
-        <div className="absolute inset-0" style={{ backgroundColor: "var(--ccq-primary)", opacity: 0.95 }} />
+        <div className="absolute inset-0" style={{ backgroundColor: "var(--ccq-primary)", opacity: 0.97 }} />
 
         <div className="relative max-w-2xl mx-auto text-center space-y-10">
           <div className="space-y-4">
