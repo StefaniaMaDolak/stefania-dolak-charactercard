@@ -219,9 +219,16 @@ export default function Home() {
             <h2 className="text-2xl font-light tracking-wide">
               Verwaltung · Psychologie · Systemik
             </h2>
-            <p className="text-sm opacity-60 leading-relaxed">
-              Weil Struktur allein nicht reicht. Weil Menschen keine Prozesse sind. Und weil alles miteinander zusammenhängt.
-            </p>
+            <blockquote
+              className="text-lg italic leading-relaxed py-6 px-8 my-4 rounded-xl"
+              style={{
+                borderLeft: "3px solid var(--ccq-secondary)",
+                backgroundColor: "rgba(154, 149, 128, 0.08)",
+                color: "var(--ccq-dark)",
+              }}
+            >
+              „Weil Struktur allein nicht reicht. Weil Menschen keine Prozesse sind. Und weil alles miteinander zusammenhängt."
+            </blockquote>
             <p className="text-xs opacity-40">Ich arbeite stundenbasiert – in folgenden Bereichen:</p>
           </div>
 
