@@ -4,6 +4,7 @@ import { useState } from "react";
 import { useCCQConfig } from "../components/CCQConfigLoader";
 
 export default function Home() {
+  const [isFlipped, setIsFlipped] = useState(false);
   const [openOffer, setOpenOffer] = useState<string | null>(null);
   const { config, loading } = useCCQConfig();
 
@@ -105,29 +106,64 @@ export default function Home() {
         </div>
       </header>
 
-      {/* HERO */}
-      <section className="py-20 px-6 text-center">
-        <div className="max-w-md mx-auto space-y-6">
-          <div className="mx-auto" style={{ width: "200px", height: "200px" }}>
-            <img
-              src="/portrait.png"
-              alt="Stefania Dolak"
-              className="w-full h-full object-cover rounded-full shadow-xl"
-            />
+      {/* FLIP-CARD VISITENKARTE */}
+      <section className="py-16 px-6 text-center">
+        <p className="text-[10px] tracking-[0.3em] uppercase opacity-40 mb-6">Zum Drehen tippen</p>
+        
+        <div
+          className="mx-auto cursor-pointer"
+          style={{ perspective: "1000px", width: "280px", height: "170px" }}
+          onClick={() => setIsFlipped(!isFlipped)}
+        >
+          <div
+            className="relative w-full h-full transition-transform duration-700"
+            style={{
+              transformStyle: "preserve-3d",
+              transform: isFlipped ? "rotateY(180deg)" : "rotateY(0deg)",
+            }}
+          >
+            {/* VORDERSEITE — Logo */}
+            <div
+              className="absolute inset-0 rounded-xl overflow-hidden shadow-lg"
+              style={{ backfaceVisibility: "hidden" }}
+            >
+              <img
+                src="/visitenkarte-vorne.jpg"
+                alt="Visitenkarte Vorderseite"
+                className="w-full h-full object-cover"
+              />
+            </div>
+            
+            {/* RÜCKSEITE — Dein Bild */}
+            <div
+              className="absolute inset-0 rounded-xl overflow-hidden shadow-lg"
+              style={{
+                backfaceVisibility: "hidden",
+                transform: "rotateY(180deg)",
+              }}
+            >
+              <img
+                src="/portrait.png"
+                alt="Stefania Dolak"
+                className="w-full h-full object-cover"
+              />
+            </div>
           </div>
-          <div className="space-y-2">
-            <h1 className="text-3xl font-light tracking-wide" style={{ color: "var(--ccq-dark)" }}>
-              {config.meta.name}
-            </h1>
-            <p className="text-sm tracking-[0.2em] uppercase opacity-60">
-              VA | Kommunikationsmanagement
-            </p>
-            <p className="text-xs tracking-wider opacity-40">REMOTE</p>
-          </div>
-          <div className="space-y-1 text-sm opacity-70">
-            <p>(+41) 77 292 73 88</p>
-            <p className="lowercase">stefania.dolak@mail.ch</p>
-          </div>
+        </div>
+        
+        <div className="mt-8 space-y-2">
+          <h1 className="text-3xl font-light tracking-wide" style={{ color: "var(--ccq-dark)" }}>
+            {config.meta.name}
+          </h1>
+          <p className="text-sm tracking-[0.2em] uppercase opacity-60">
+            VA | Kommunikationsmanagement
+          </p>
+          <p className="text-xs tracking-wider opacity-40">REMOTE</p>
+        </div>
+        
+        <div className="mt-4 space-y-1 text-sm opacity-70">
+          <p>(+41) 77 292 73 88</p>
+          <p className="lowercase">stefania.dolak@mail.ch</p>
         </div>
       </section>
 
