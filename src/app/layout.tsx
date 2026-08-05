@@ -2,8 +2,8 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "CCQ Charactercard — Erkannt werden für das, was wirklich zählt",
-  description: "Deine digitale Visitenkarte. Immer griffbereit. Mit QR-Code, zum Speichern statt nur Anschauen.",
+  title: "Stefania Dolak — Kommunikationsmanagement | VA für Verwaltung \u0026 Organisation",
+  description: "Virtuelle Assistenz für Kommunikationsmanagement, Verwaltung \u0026 Organisation. 10 Jahre Erfahrung. Psychologische Beraterin. Systemischer Coach. Remote.",
 };
 
 export default function RootLayout({
