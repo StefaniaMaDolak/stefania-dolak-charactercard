@@ -45,9 +45,9 @@ export default function Home() {
     },
     {
       id: "verwaltung",
-      title: "Verwaltung & Organisation",
+      title: "Verwaltung \u0026 Organisation",
       kurz: "Nicht nur erledigen — dauerhaft strukturieren.",
-      lang: "Ich übernehme nicht nur einzelne Aufgaben — ich baue Strukturen auf, die bleiben.\\n\\n**Dokumente & Ablage:** Verträge erstellen, Formulare vorbereiten, digitale Ablagesysteme pflegen — damit Unterlagen jederzeit auffindbar und vollständig sind.\\n\\n**Datenbanken & Überblick:** Stammdaten pflegen, offene Vorgänge nachverfolgen, Fristen im Blick behalten — damit nichts untergeht.\\n\\n**Prozesse & Transparenz:** Abläufe dokumentieren, Checklisten erstellen, Status für alle Beteiligten klar halten — damit Zuständigkeiten auch bei Abwesenheit gesichert sind.\\n\\nDiese Strukturarbeit ist keine Zusatzleistung. Sie ist der Grund, warum Kommunikation und Management langfristig funktionieren — statt bei jedem Wechsel neu erfunden zu werden müssen.",
+      lang: "Ich übernehme nicht nur einzelne Aufgaben — ich baue Strukturen auf, die bleiben.\n\n<strong>Dokumente \u0026 Ablage:</strong> Verträge erstellen, Formulare vorbereiten, digitale Ablagesysteme pflegen — damit Unterlagen jederzeit auffindbar und vollständig sind.\n\n<strong>Datenbanken \u0026 Überblick:</strong> Stammdaten pflegen, offene Vorgänge nachverfolgen, Fristen im Blick behalten — damit nichts untergeht.\n\n<strong>Prozesse \u0026 Transparenz:</strong> Abläufe dokumentieren, Checklisten erstellen, Status für alle Beteiligten klar halten — damit Zuständigkeiten auch bei Abwesenheit gesichert sind.\n\nDiese Strukturarbeit ist keine Zusatzleistung. Sie ist der Grund, warum Kommunikation und Management langfristig funktionieren — statt bei jedem Wechsel neu erfunden zu werden müssen.",
     },
     {
       id: "projekt",
@@ -264,9 +264,8 @@ export default function Home() {
                       backgroundColor: "var(--ccq-light)",
                       border: "1px solid var(--ccq-secondary)",
                     }}
-                  >
-                    {angebot.lang}
-                  </div>
+                    dangerouslySetInnerHTML={{ __html: angebot.lang.replace(/\n/g, '<br />') }}
+                  />
                 </div>
               </div>
             ))}
