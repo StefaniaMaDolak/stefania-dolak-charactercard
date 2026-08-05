@@ -44,10 +44,10 @@ export default function Home() {
       lang: "Ich übernehme die Kommunikation mit Kunden — per E-Mail, Telefon oder Chat. Schnell, zuverlässig und mit dem Gespür, das zwischen den Zeilen liest. Ob Anfragen, Beschwerden oder Follow-ups: Deine Kunden fühlen sich verstanden und gut betreut.",
     },
     {
-      id: "mitarbeiter",
-      title: "Mitarbeiterbetreuung",
-      kurz: "Interne Kommunikation, die verbindet statt belastet.",
-      lang: "Onboarding, Updates, Konflikte oder einfach nur jemand, der für das Team da ist — ich unterstütze bei der internen Kommunikation. Mit psychologischem Feingefühl und organisatorischer Klarheit, damit dein Team gut zusammenarbeitet.",
+      id: "verwaltung",
+      title: "Verwaltung & Organisation",
+      kurz: "Nicht nur erledigen — dauerhaft strukturieren.",
+      lang: "Ich übernehme nicht nur einzelne Aufgaben — ich baue Strukturen auf, die bleiben.\\n\\n**Dokumente & Ablage:** Verträge erstellen, Formulare vorbereiten, digitale Ablagesysteme pflegen — damit Unterlagen jederzeit auffindbar und vollständig sind.\\n\\n**Datenbanken & Überblick:** Stammdaten pflegen, offene Vorgänge nachverfolgen, Fristen im Blick behalten — damit nichts untergeht.\\n\\n**Prozesse & Transparenz:** Abläufe dokumentieren, Checklisten erstellen, Status für alle Beteiligten klar halten — damit Zuständigkeiten auch bei Abwesenheit gesichert sind.\\n\\nDiese Strukturarbeit ist keine Zusatzleistung. Sie ist der Grund, warum Kommunikation und Management langfristig funktionieren — statt bei jedem Wechsel neu erfunden zu werden müssen.",
     },
     {
       id: "projekt",
