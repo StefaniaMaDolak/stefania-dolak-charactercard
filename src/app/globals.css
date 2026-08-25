@@ -1,10 +1,438 @@
 @import "tailwindcss";
 
+:root {
+  --ccq-primary: #f5f0e8;
+  --ccq-secondary: #9a9580;
+  --ccq-dark: #2c2c2c;
+  --ccq-light: #faf7f2;
+  --ccq-accent: #b8a88a;
+}
+
 @theme {
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --font-sans: var(--font-body);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 108px;
 }
 
 body {
-  font-family: var(--font-sans), ui-sans-serif, system-ui, sans-serif;
+  margin: 0;
+  min-width: 320px;
+  background: var(--ccq-primary);
+  color: var(--ccq-dark);
+  font-family: var(--font-body), Arial, sans-serif;
+}
+
+button,
+a {
+  font: inherit;
+}
+
+button:focus-visible,
+a:focus-visible {
+  outline: 2px solid var(--ccq-dark);
+  outline-offset: 4px;
+}
+
+.ccq-page {
+  position: relative;
+  isolation: isolate;
+  overflow: clip;
+  padding-bottom: 28px;
+  background: transparent !important;
+}
+
+.ccq-page::before {
+  position: fixed;
+  z-index: -2;
+  inset: 0;
+  content: "";
+  background-image: url("/stefania-hintergrund.jpg");
+  background-repeat: no-repeat;
+  background-position: 58% center;
+  background-size: cover;
+  transform: translateZ(0);
+}
+
+.ccq-page::after {
+  position: fixed;
+  z-index: -1;
+  inset: 0;
+  content: "";
+  pointer-events: none;
+  background: linear-gradient(180deg, rgba(250, 247, 242, 0.04), rgba(44, 44, 44, 0.08));
+}
+
+/* Hero: dieselbe gestaffelte Komposition wie im Canva-Entwurf */
+.ccq-hero {
+  position: relative;
+  display: flex;
+  min-height: min(940px, 96svh);
+  max-width: 760px;
+  margin: 0 auto;
+  padding-top: 34px;
+  padding-bottom: 36px;
+  flex-direction: column;
+  align-items: center;
+}
+
+.ccq-logo {
+  width: clamp(132px, 25vw, 178px);
+  height: auto;
+  margin-right: auto;
+  object-fit: contain;
+}
+
+.ccq-hero-title {
+  width: 100%;
+  margin-top: 28px;
+  text-align: left;
+}
+
+.ccq-hero-title h1 {
+  max-width: 690px;
+  margin: 0;
+  font-family: var(--font-display), Georgia, serif;
+  font-size: clamp(4rem, 12vw, 7.5rem);
+  font-weight: 500;
+  line-height: 0.78;
+  letter-spacing: -0.045em;
+  text-transform: uppercase;
+  text-wrap: balance;
+}
+
+.ccq-role {
+  margin-top: 22px;
+  font-family: var(--font-display), Georgia, serif;
+  font-size: clamp(1rem, 3vw, 1.4rem);
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.ccq-remote {
+  margin-top: 3px;
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.28em;
+}
+
+.ccq-hero-contact {
+  align-self: flex-end;
+  margin-top: 74px;
+  text-align: left;
+  font-size: clamp(0.69rem, 2vw, 0.82rem);
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  line-height: 1.75;
+}
+
+.ccq-flip-card {
+  position: relative;
+  display: block;
+  width: min(90vw, 470px);
+  aspect-ratio: 1.766 / 1;
+  margin: auto auto 0;
+  padding: 0;
+  cursor: pointer;
+  border: 0;
+  border-radius: 14px;
+  background: transparent;
+  color: inherit;
+}
+
+.ccq-flip-card-inner {
+  position: absolute;
+  display: block;
+  inset: 0;
+  transition: transform 700ms cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+
+.ccq-card-face {
+  position: absolute;
+  display: block;
+  overflow: hidden;
+  inset: 0;
+  border: 1px solid rgba(44, 44, 44, 0.1);
+  border-radius: 14px;
+  box-shadow: 0 20px 50px rgba(32, 27, 21, 0.26);
+  backface-visibility: hidden;
+}
+
+.ccq-card-back {
+  transform: rotateY(180deg);
+}
+
+.ccq-card-face img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.ccq-flip-hint {
+  margin-top: 12px;
+  padding: 6px 12px;
+  border-radius: 999px;
+  background: rgba(250, 247, 242, 0.75);
+  font-size: 0.62rem;
+  font-weight: 600;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+}
+
+/* Navigation: weiße Canva-Pillen, Arbeit bewusst nicht enthalten */
+.ccq-nav-wrap {
+  width: min(100% - 24px, 760px);
+  margin: 0 auto 30px;
+  padding: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.48);
+  border-radius: 30px;
+  background: rgba(245, 240, 232, 0.36);
+  box-shadow: 0 16px 40px rgba(32, 27, 21, 0.12);
+  backdrop-filter: blur(12px);
+}
+
+.ccq-nav {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 8px;
+}
+
+.ccq-nav-pill {
+  min-height: 46px;
+  padding: 0 14px;
+  cursor: pointer;
+  border: 1px solid rgba(44, 44, 44, 0.08);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.93);
+  box-shadow: 0 6px 18px rgba(38, 31, 24, 0.12);
+  color: var(--ccq-dark);
+  font-size: 0.67rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  transition: transform 180ms ease, background-color 180ms ease, box-shadow 180ms ease;
+}
+
+.ccq-nav-pill:hover {
+  background: var(--ccq-light);
+  box-shadow: 0 9px 22px rgba(38, 31, 24, 0.18);
+  transform: translateY(-1px);
+}
+
+/* Alle Inhalte bleiben erhalten und werden in dieselbe Rahmenoptik gesetzt */
+.ccq-section-card {
+  position: relative;
+  width: min(100% - 28px, 720px);
+  margin: 0 auto 34px;
+  border: 1px solid rgba(255, 255, 255, 0.62);
+  border-radius: 54px;
+  background: rgba(250, 247, 242, 0.9) !important;
+  box-shadow: 0 28px 70px rgba(39, 31, 23, 0.18);
+  backdrop-filter: blur(9px);
+  scroll-margin-top: 110px;
+}
+
+.ccq-section-card > div {
+  position: relative;
+}
+
+.ccq-section-card > div > div:first-child > p:first-child {
+  margin-bottom: 8px;
+  color: var(--ccq-dark) !important;
+  font-family: var(--font-display), Georgia, serif;
+  font-size: clamp(3.1rem, 10vw, 5rem) !important;
+  font-weight: 500;
+  line-height: 0.9;
+  letter-spacing: -0.02em !important;
+  text-transform: uppercase;
+  opacity: 1 !important;
+}
+
+.ccq-section-card h2 {
+  font-family: var(--font-display), Georgia, serif;
+  font-size: clamp(1.5rem, 4.4vw, 2.05rem);
+  font-weight: 500;
+  line-height: 1.08;
+}
+
+.ccq-section-card p,
+.ccq-section-card blockquote,
+.ccq-section-card button,
+.ccq-section-card a {
+  text-wrap: pretty;
+}
+
+.ccq-section-card .text-sm {
+  font-size: 0.88rem;
+}
+
+.ccq-old-section-image {
+  display: none;
+}
+
+/* Angebot: Aufklappfunktion unverändert, nur neue Oberfläche */
+#angebot blockquote {
+  border-left: 0 !important;
+  border-radius: 24px !important;
+  background: rgba(184, 168, 138, 0.18) !important;
+  box-shadow: inset 0 0 0 1px rgba(154, 149, 128, 0.3);
+  font-family: var(--font-display), Georgia, serif;
+}
+
+#angebot button.w-full {
+  border-color: rgba(154, 149, 128, 0.52) !important;
+  border-radius: 24px !important;
+  background: rgba(255, 255, 255, 0.72) !important;
+  box-shadow: 0 8px 24px rgba(48, 39, 30, 0.08);
+}
+
+#angebot button.w-full:hover {
+  background: rgba(255, 255, 255, 0.96) !important;
+}
+
+#angebot button.w-full + div > div {
+  border-color: rgba(154, 149, 128, 0.45) !important;
+  border-radius: 24px !important;
+  background: rgba(245, 240, 232, 0.82) !important;
+}
+
+#angebot a[href^="mailto:"] {
+  background: rgba(255, 255, 255, 0.62);
+}
+
+/* Hintergrund behält seine zeitliche Vita-Struktur */
+#hintergrund .w-16 {
+  font-family: var(--font-display), Georgia, serif;
+  font-size: 1.05rem;
+}
+
+/* Kontakt bleibt funktional, wird aber ebenfalls zum hellen Rahmen */
+.ccq-contact,
+.ccq-contact * {
+  color: var(--ccq-dark) !important;
+}
+
+.ccq-contact img {
+  border-radius: 12px;
+  background: white;
+}
+
+.ccq-contact button {
+  background: rgba(255, 255, 255, 0.55);
+}
+
+.ccq-footer {
+  width: min(100% - 28px, 720px);
+  margin: 0 auto;
+  border: 1px solid rgba(255, 255, 255, 0.48);
+  border-radius: 999px;
+  background: rgba(250, 247, 242, 0.78);
+  backdrop-filter: blur(8px);
+}
+
+@media (min-width: 700px) {
+  .ccq-page::before {
+    background-position: center 32%;
+  }
+
+  .ccq-nav {
+    grid-template-columns: repeat(6, minmax(0, 1fr));
+  }
+
+  .ccq-nav-pill {
+    padding-inline: 10px;
+    font-size: 0.58rem;
+  }
+}
+
+@media (max-width: 520px) {
+  .ccq-page::before {
+    background-position: 56% center;
+  }
+
+  .ccq-hero {
+    min-height: 920px;
+    padding-top: 26px;
+  }
+
+  .ccq-logo {
+    width: 138px;
+  }
+
+  .ccq-hero-title {
+    margin-top: 24px;
+  }
+
+  .ccq-hero-title h1 {
+    max-width: 370px;
+    font-size: clamp(3.65rem, 18vw, 5.25rem);
+    line-height: 0.77;
+  }
+
+  .ccq-role {
+    max-width: 330px;
+    font-size: 0.83rem;
+    line-height: 1.4;
+  }
+
+  .ccq-hero-contact {
+    margin-top: 68px;
+    font-size: 0.66rem;
+  }
+
+  .ccq-flip-card {
+    width: min(91vw, 380px);
+  }
+
+  .ccq-nav-wrap {
+    top: 8px;
+    border-radius: 28px;
+  }
+
+  .ccq-section-card {
+    width: calc(100% - 24px);
+    margin-bottom: 26px;
+    padding: 58px 22px !important;
+    border-radius: 42px;
+  }
+
+  .ccq-section-card > div > div:first-child > p:first-child {
+    font-size: clamp(2.8rem, 14vw, 4rem) !important;
+  }
+
+  .ccq-section-card h2 {
+    font-size: 1.4rem;
+  }
+
+  .ccq-section-card .text-sm {
+    font-size: 0.82rem;
+    line-height: 1.72;
+  }
+
+  #hintergrund .flex.gap-6 {
+    gap: 14px;
+  }
+
+  #hintergrund .w-16 {
+    width: 54px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  .ccq-flip-card-inner,
+  .ccq-nav-pill {
+    transition: none;
+  }
 }

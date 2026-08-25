@@ -4,10 +4,11 @@
     "hinten": "/visitenkarte-hinten.jpg"
   },
   "farben": {
-    "primary": "#C4BDB0",
+    "primary": "#F5F0E8",
     "secondary": "#9A9580",
-    "dark": "#5C5648",
-    "light": "#F5F0EA"
+    "dark": "#2C2C2C",
+    "light": "#FAF7F2",
+    "accent": "#B8A88A"
   },
   "meta": {
     "name": "Stefania Dolak",

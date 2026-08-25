@@ -12,6 +12,7 @@ export interface CCQConfig {
     secondary: string;
     dark: string;
     light: string;
+    accent: string;
   };
   meta: {
     name: string;
@@ -46,6 +47,7 @@ export function useCCQConfig() {
         document.documentElement.style.setProperty("--ccq-secondary", data.farben.secondary);
         document.documentElement.style.setProperty("--ccq-dark", data.farben.dark);
         document.documentElement.style.setProperty("--ccq-light", data.farben.light);
+        document.documentElement.style.setProperty("--ccq-accent", data.farben.accent);
         setConfig(data);
         setLoading(false);
       })

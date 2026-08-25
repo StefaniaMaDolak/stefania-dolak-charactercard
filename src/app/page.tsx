@@ -73,96 +73,75 @@ export default function Home() {
   ];
 
   return (
-    <main
-      className="min-h-screen text-[var(--ccq-dark)] font-sans"
-      style={{ backgroundColor: "var(--ccq-light)" }}
-    >
-      {/* HEADER / NAVIGATION */}
-      <header className="sticky top-0 z-50 backdrop-blur-md bg-white/80 border-b border-[var(--ccq-primary)]/30">
-        <div className="max-w-2xl mx-auto px-6 py-4 flex items-center justify-between">
-          {/* CCQ Symbol — nur Hinweis */}
-          <div
-            className="w-4 h-4 rounded-full border"
-            style={{ borderColor: "var(--ccq-secondary)" }}
-          />
-          <nav className="flex gap-4 overflow-x-auto">
-            {["PROFIL", "ANGEBOT", "ARBEIT", "HINTERGRUND", "CHARAKTER", "SPEZIAL", "KONTAKT"].map((item) => (
-              <button
-                key={item}
-                onClick={() => scrollTo(item.toLowerCase())}
-                className="text-[10px] tracking-wider uppercase hover:opacity-60 transition-opacity whitespace-nowrap"
-                style={{ color: "var(--ccq-dark)" }}
-              >
-                {item}
-              </button>
-            ))}
-          </nav>
-        </div>
-      </header>
+    <main className="ccq-page min-h-screen text-[var(--ccq-dark)]">
+      {/* HERO / VISITENKARTE */}
+      <section className="ccq-hero px-5 text-center">
+        <img
+          src="/ccq-logo-transparent.png"
+          alt="CCQ Charactercard"
+          className="ccq-logo"
+        />
 
-      {/* FLIP-CARD VISITENKARTE */}
-      <section className="py-16 px-6 text-center">
-        <p className="text-[11px] tracking-[0.3em] uppercase opacity-40 mb-6">Zum Drehen tippen</p>
-        
-        <div
-          className="mx-auto cursor-pointer"
-          style={{ perspective: "1000px", width: "280px", height: "170px" }}
+        <div className="ccq-hero-title">
+          <h1>{config.meta.name}</h1>
+          <p className="ccq-role">VA | Kommunikationsmanagement</p>
+          <p className="ccq-remote">REMOTE</p>
+        </div>
+
+        <div className="ccq-hero-contact">
+          <p>(+41) 77 292 73 88</p>
+          <p className="lowercase">stefania.dolak@mail.ch</p>
+        </div>
+
+        <button
+          type="button"
+          className="ccq-flip-card"
+          style={{ perspective: "1000px" }}
           onClick={() => setIsFlipped(!isFlipped)}
+          aria-label="Visitenkarte drehen"
+          aria-pressed={isFlipped}
         >
-          <div
-            className="relative w-full h-full transition-transform duration-700"
+          <span
+            className="ccq-flip-card-inner"
             style={{
               transformStyle: "preserve-3d",
               transform: isFlipped ? "rotateY(180deg)" : "rotateY(0deg)",
             }}
           >
-            {/* VORDERSEITE — Logo */}
-            <div
-              className="absolute inset-0 rounded-xl overflow-hidden shadow-lg"
-              style={{ backfaceVisibility: "hidden" }}
-            >
+            <span className="ccq-card-face">
               <img
                 src="/visitenkarte-vorne.jpg"
                 alt="Visitenkarte Vorderseite"
-                className="w-full h-full object-cover"
               />
-            </div>
-            
-            {/* RÜCKSEITE — Dein Bild */}
-            <div
-              className="absolute inset-0 rounded-xl overflow-hidden shadow-lg"
-              style={{
-                backfaceVisibility: "hidden",
-                transform: "rotateY(180deg)",
-              }}
-            >
+            </span>
+            <span className="ccq-card-face ccq-card-back">
               <img
                 src="/visitenkarte-hinten.jpg"
-                alt="Stefania Dolak"
-                className="w-full h-full object-cover"
+                alt="Visitenkarte Rückseite"
               />
-            </div>
-          </div>
-        </div>
-        
-        <div className="mt-8 space-y-2">
-          <h1 className="text-3xl font-light tracking-wide" style={{ color: "var(--ccq-dark)" }}>
-            {config.meta.name}
-          </h1>
-          <p className="text-sm tracking-[0.2em] uppercase opacity-60">
-            VA | Kommunikationsmanagement
-          </p>
-          <p className="text-xs tracking-wider opacity-40">REMOTE</p>
-        </div>
-        
-        <div className="mt-4 space-y-1 text-sm opacity-70">
-          <p>(+41) 77 292 73 88</p>
-          <p className="lowercase">stefania.dolak@mail.ch</p>
-        </div>
+            </span>
+          </span>
+        </button>
+        <p className="ccq-flip-hint">Zum Drehen tippen</p>
       </section>
 
+      {/* NAVIGATION — Arbeit bleibt bewusst ohne eigenen Menüpunkt */}
+      <header className="ccq-nav-wrap sticky top-3 z-50">
+        <nav className="ccq-nav" aria-label="Bereiche">
+          {["PROFIL", "ANGEBOT", "HINTERGRUND", "CHARAKTER", "SPEZIAL", "KONTAKT"].map((item) => (
+            <button
+              key={item}
+              onClick={() => scrollTo(item.toLowerCase())}
+              className="ccq-nav-pill"
+            >
+              {item}
+            </button>
+          ))}
+        </nav>
+      </header>
+
       {/* PROFIL */}
-      <section id="profil" className="py-20 px-6" style={{ backgroundColor: "var(--ccq-primary)" }}>
+      <section id="profil" className="ccq-section-card py-20 px-6">
         <div className="max-w-2xl mx-auto text-center space-y-10">
           <div className="space-y-4">
             <p className="text-[11px] tracking-[0.3em] uppercase opacity-40">PROFIL</p>
@@ -196,10 +175,10 @@ export default function Home() {
       </section>
 
       {/* ANGEBOT */}
-      <section id="angebot" className="relative py-20 px-6 overflow-hidden">
+      <section id="angebot" className="ccq-section-card relative py-20 px-6 overflow-hidden">
         {/* Hintergrund: Schreibtisch, sichtbar */}
         <div
-          className="absolute inset-0 bg-cover bg-center"
+          className="ccq-old-section-image absolute inset-0 bg-cover bg-center"
           style={{
             backgroundImage: "url(/arbeitsplatz.jpg)",
             opacity: 0.15
@@ -220,7 +199,7 @@ export default function Home() {
                 color: "var(--ccq-dark)",
               }}
             >
-              „Weil Struktur allein nicht reicht. Weil Menschen keine Prozesse sind. Und weil alles miteinander zusammenhängt."
+              „Weil Struktur allein nicht reicht. Weil Menschen keine Prozesse sind. Und weil alles miteinander zusammenhängt.“
             </blockquote>
             <p className="text-xs opacity-40">Ich arbeite stundenbasiert – in folgenden Bereichen:</p>
           </div>
@@ -248,7 +227,7 @@ export default function Home() {
 
                 <div
                   className={`overflow-hidden transition-all duration-500 ${
-                    openOffer === angebot.id ? "max-h-96 opacity-100 mt-2" : "max-h-0 opacity-0"
+                    openOffer === angebot.id ? "max-h-[1200px] opacity-100 mt-2" : "max-h-0 opacity-0"
                   }`}
                 >
                   <div
@@ -290,7 +269,7 @@ export default function Home() {
       </section>
 
       {/* ARBEIT */}
-      <section id="arbeit" className="py-20 px-6" style={{ backgroundColor: "var(--ccq-primary)" }}>
+      <section id="arbeit" className="ccq-section-card py-20 px-6">
         <div className="max-w-2xl mx-auto text-center space-y-10">
           <div className="space-y-4">
             <p className="text-[11px] tracking-[0.3em] uppercase opacity-40">ARBEIT</p>
@@ -330,7 +309,7 @@ export default function Home() {
       </section>
 
       {/* HINTERGRUND */}
-      <section id="hintergrund" className="py-20 px-6">
+      <section id="hintergrund" className="ccq-section-card py-20 px-6">
         <div className="max-w-2xl mx-auto text-center space-y-10">
           <div className="space-y-4">
             <p className="text-[11px] tracking-[0.3em] uppercase opacity-40">HINTERGRUND</p>
@@ -358,10 +337,10 @@ export default function Home() {
       </section>
 
       {/* CHARAKTER */}
-      <section id="charakter" className="relative py-20 px-6 overflow-hidden">
+      <section id="charakter" className="ccq-section-card relative py-20 px-6 overflow-hidden">
         {/* Hintergrund: Portrait, sichtbar */}
         <div
-          className="absolute inset-0 bg-cover bg-center"
+          className="ccq-old-section-image absolute inset-0 bg-cover bg-center"
           style={{
             backgroundImage: "url(/portrait.jpg)",
             opacity: 0.15
@@ -398,7 +377,7 @@ export default function Home() {
       </section>
 
       {/* SPEZIAL */}
-      <section id="spezial" className="py-20 px-6">
+      <section id="spezial" className="ccq-section-card py-20 px-6">
         <div className="max-w-2xl mx-auto text-center space-y-10">
           <div className="space-y-4">
             <p className="text-[11px] tracking-[0.3em] uppercase opacity-40">SPEZIAL</p>
@@ -419,7 +398,7 @@ export default function Home() {
       </section>
 
       {/* KONTAKT */}
-      <section id="kontakt" className="py-20 px-6" style={{ backgroundColor: "var(--ccq-dark)" }}>
+      <section id="kontakt" className="ccq-section-card ccq-contact py-20 px-6">
         <div className="max-w-2xl mx-auto text-center space-y-8">
           <div className="space-y-4">
             <p className="text-[11px] tracking-[0.3em] uppercase opacity-40" style={{ color: "var(--ccq-light)" }}>KONTAKT</p>
@@ -462,7 +441,7 @@ export default function Home() {
       </section>
 
       {/* FOOTER */}
-      <footer className="py-6 px-4 text-center border-t" style={{ borderColor: "var(--ccq-secondary)" }}>
+      <footer className="ccq-footer py-6 px-4 text-center">
         <p className="text-[10px] tracking-wider opacity-30">© 2026 {config.meta.name}</p>
       </footer>
     </main>
