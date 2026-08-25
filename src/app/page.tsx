@@ -120,7 +120,7 @@ export default function Home() {
         {/* Arbeit bleibt als Abschnitt erhalten, aber bewusst ohne Menüpunkt. */}
         <header className="ccq-nav-wrap">
           <nav className="ccq-nav" aria-label="Bereiche">
-            {["PROFIL", "ANGEBOT", "HINTERGRUND", "CHARAKTER", "SPEZIAL", "KONTAKT"].map((item) => (
+            {["PROFIL", "ANGEBOT", "CHARAKTER", "SPEZIAL", "KONTAKT"].map((item) => (
               <button
                 key={item}
                 onClick={() => scrollTo(item.toLowerCase())}
@@ -131,6 +131,13 @@ export default function Home() {
             ))}
           </nav>
         </header>
+
+        <div className="ccq-swipe-cue" aria-hidden="true">
+          <span>SWIPE</span>
+          <svg viewBox="0 0 24 34" role="presentation">
+            <path d="M12 1v27M5 21l7 8 7-8" />
+          </svg>
+        </div>
 
         <div className="sr-only">
           <p>REMOTE</p>
@@ -174,8 +181,9 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ANGEBOT */}
-      <section id="angebot" className="ccq-section-card relative py-20 px-6 overflow-hidden">
+      <div className="ccq-offer-background-group">
+        {/* ANGEBOT */}
+        <section id="angebot" className="ccq-section-card relative py-20 px-6 overflow-hidden">
         {/* Hintergrund: Schreibtisch, sichtbar */}
         <div
           className="ccq-old-section-image absolute inset-0 bg-cover bg-center"
@@ -266,7 +274,36 @@ export default function Home() {
             </div>
           </div>
         </div>
-      </section>
+        </section>
+
+        {/* HINTERGRUND — als verbundener Anhang zum Angebot */}
+        <section id="hintergrund" className="ccq-section-card ccq-background-attachment py-20 px-6">
+          <div className="max-w-2xl mx-auto text-center space-y-10">
+            <div className="space-y-4">
+              <p className="ccq-section-label text-[11px] tracking-[0.3em] uppercase opacity-40">HINTERGRUND</p>
+            </div>
+
+            <div className="text-left space-y-6">
+              {config.vita.map((item) => (
+                <div key={item.year} className="flex gap-6 items-start">
+                  <div className="w-16 text-right text-xs font-bold tracking-wider pt-1" style={{ color: "var(--ccq-secondary)" }}>
+                    {item.year}
+                  </div>
+                  <div className="flex-1 text-sm leading-relaxed opacity-85">
+                    {item.text}
+                  </div>
+                </div>
+              ))}
+            </div>
+
+            <div className="pt-6 text-left">
+              <p className="text-sm leading-relaxed opacity-70 italic">
+                Als Assistenz über mehrere Jahre und auch heute virtuell für Sie erreichbar. Mit dem Wissen, dass das Wissen nie an einer Stelle stehen bleibt.
+              </p>
+            </div>
+          </div>
+        </section>
+      </div>
 
       {/* ARBEIT */}
       <section id="arbeit" className="ccq-section-card py-20 px-6">
@@ -304,34 +341,6 @@ export default function Home() {
                 Dieses Bedürfnis ist meine Motivation.
               </p>
             </div>
-          </div>
-        </div>
-      </section>
-
-      {/* HINTERGRUND */}
-      <section id="hintergrund" className="ccq-section-card py-20 px-6">
-        <div className="max-w-2xl mx-auto text-center space-y-10">
-          <div className="space-y-4">
-            <p className="ccq-section-label text-[11px] tracking-[0.3em] uppercase opacity-40">HINTERGRUND</p>
-          </div>
-
-          <div className="text-left space-y-6">
-            {config.vita.map((item) => (
-              <div key={item.year} className="flex gap-6 items-start">
-                <div className="w-16 text-right text-xs font-bold tracking-wider pt-1" style={{ color: "var(--ccq-secondary)" }}>
-                  {item.year}
-                </div>
-                <div className="flex-1 text-sm leading-relaxed opacity-85">
-                  {item.text}
-                </div>
-              </div>
-            ))}
-          </div>
-
-          <div className="pt-6 text-left">
-            <p className="text-sm leading-relaxed opacity-70 italic">
-              Als Assistenz über mehrere Jahre und auch heute virtuell für Sie erreichbar. Mit dem Wissen, dass das Wissen nie an einer Stelle stehen bleibt.
-            </p>
           </div>
         </div>
       </section>
