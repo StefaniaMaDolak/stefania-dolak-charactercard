@@ -144,7 +144,7 @@ export default function Home() {
       <section id="profil" className="ccq-section-card py-20 px-6">
         <div className="max-w-2xl mx-auto text-center space-y-10">
           <div className="space-y-4">
-            <p className="text-[11px] tracking-[0.3em] uppercase opacity-40">PROFIL</p>
+            <p className="ccq-section-label text-[11px] tracking-[0.3em] uppercase opacity-40">PROFIL</p>
             <h2 className="text-2xl font-light tracking-wide leading-relaxed">
               Die Virtuelle Assistenz für Kommunikationsmanagement
             </h2>
@@ -187,7 +187,7 @@ export default function Home() {
 
         <div className="relative max-w-2xl mx-auto text-center space-y-10">
           <div className="space-y-4">
-            <p className="text-[11px] tracking-[0.3em] uppercase opacity-40">ANGEBOT</p>
+            <p className="ccq-section-label text-[11px] tracking-[0.3em] uppercase opacity-40">ANGEBOT</p>
             <h2 className="text-2xl font-light tracking-wide">
               Verwaltung · Psychologie · Systemik
             </h2>
@@ -272,7 +272,7 @@ export default function Home() {
       <section id="arbeit" className="ccq-section-card py-20 px-6">
         <div className="max-w-2xl mx-auto text-center space-y-10">
           <div className="space-y-4">
-            <p className="text-[11px] tracking-[0.3em] uppercase opacity-40">ARBEIT</p>
+            <p className="ccq-section-label text-[11px] tracking-[0.3em] uppercase opacity-40">ARBEIT</p>
           </div>
 
           <div className="text-left space-y-6 text-sm leading-relaxed" style={{ color: "var(--ccq-dark)" }}>
@@ -312,7 +312,7 @@ export default function Home() {
       <section id="hintergrund" className="ccq-section-card py-20 px-6">
         <div className="max-w-2xl mx-auto text-center space-y-10">
           <div className="space-y-4">
-            <p className="text-[11px] tracking-[0.3em] uppercase opacity-40">HINTERGRUND</p>
+            <p className="ccq-section-label text-[11px] tracking-[0.3em] uppercase opacity-40">HINTERGRUND</p>
           </div>
 
           <div className="text-left space-y-6">
@@ -349,7 +349,7 @@ export default function Home() {
 
         <div className="relative max-w-2xl mx-auto text-center space-y-10">
           <div className="space-y-4">
-            <p className="text-[11px] tracking-[0.3em] uppercase opacity-40">CHARAKTER</p>
+            <p className="ccq-section-label text-[11px] tracking-[0.3em] uppercase opacity-40">CHARAKTER</p>
           </div>
 
           <div className="text-left space-y-6 text-sm leading-relaxed" style={{ color: "var(--ccq-dark)" }}>
@@ -380,7 +380,7 @@ export default function Home() {
       <section id="spezial" className="ccq-section-card py-20 px-6">
         <div className="max-w-2xl mx-auto text-center space-y-10">
           <div className="space-y-4">
-            <p className="text-[11px] tracking-[0.3em] uppercase opacity-40">SPEZIAL</p>
+            <p className="ccq-section-label text-[11px] tracking-[0.3em] uppercase opacity-40">SPEZIAL</p>
           </div>
 
           <p className="text-sm opacity-60">Hier erscheinen bald Downloads, Checklisten und Extras für dich.</p>
@@ -401,7 +401,7 @@ export default function Home() {
       <section id="kontakt" className="ccq-section-card ccq-contact py-20 px-6">
         <div className="max-w-2xl mx-auto text-center space-y-8">
           <div className="space-y-4">
-            <p className="text-[11px] tracking-[0.3em] uppercase opacity-40" style={{ color: "var(--ccq-light)" }}>KONTAKT</p>
+            <p className="ccq-section-label text-[11px] tracking-[0.3em] uppercase opacity-40" style={{ color: "var(--ccq-light)" }}>KONTAKT</p>
           </div>
 
           <div className="inline-block p-4 rounded-2xl border" style={{ borderColor: "var(--ccq-secondary)", backgroundColor: "rgba(255,255,255,0.05)" }}>

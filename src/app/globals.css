@@ -17,14 +17,22 @@
 }
 
 html {
+  min-height: 100%;
   scroll-behavior: smooth;
   scroll-padding-top: 108px;
+  background-color: var(--ccq-primary);
+  background-image: url("/stefania-hintergrund.jpg");
+  background-repeat: no-repeat;
+  background-position: 56% center;
+  background-size: cover;
+  background-attachment: fixed;
 }
 
 body {
   margin: 0;
   min-width: 320px;
-  background: var(--ccq-primary);
+  min-height: 100%;
+  background: transparent;
   color: var(--ccq-dark);
   font-family: var(--font-body), Arial, sans-serif;
 }
@@ -51,13 +59,14 @@ a:focus-visible {
 .ccq-page::before {
   position: fixed;
   z-index: -2;
-  inset: 0;
+  inset: -2px;
+  min-height: calc(100dvh + 4px);
   content: "";
+  background-color: var(--ccq-primary);
   background-image: url("/stefania-hintergrund.jpg");
   background-repeat: no-repeat;
   background-position: 58% center;
   background-size: cover;
-  transform: translateZ(0);
 }
 
 .ccq-page::after {
@@ -244,7 +253,9 @@ a:focus-visible {
   position: relative;
 }
 
-.ccq-section-card > div > div:first-child > p:first-child {
+.ccq-section-label {
+  position: relative;
+  z-index: 2;
   display: inline-flex;
   min-width: 164px;
   min-height: 48px;
@@ -360,6 +371,7 @@ a:focus-visible {
 
   .ccq-hero {
     min-height: 800px;
+    margin-bottom: 40px;
     padding: 26px 14px 42px;
   }
 
@@ -412,12 +424,12 @@ a:focus-visible {
 
   .ccq-section-card {
     width: calc(100% - 24px);
-    margin-bottom: 26px;
-    padding: 58px 22px !important;
+    margin-bottom: 40px;
+    padding: 80px 22px 58px !important;
     border-radius: 42px;
   }
 
-  .ccq-section-card > div > div:first-child > p:first-child {
+  .ccq-section-label {
     min-width: 154px;
     min-height: 44px;
     font-size: 0.68rem !important;
