@@ -74,24 +74,13 @@ export default function Home() {
 
   return (
     <main className="ccq-page min-h-screen text-[var(--ccq-dark)]">
-      {/* HERO / VISITENKARTE */}
-      <section className="ccq-hero px-5 text-center">
+      {/* HERO / VISITENKARTE — Aufbau nach Stefanias Canva-Referenz */}
+      <section className="ccq-hero text-center">
         <img
           src="/ccq-logo-transparent.png"
           alt="CCQ Charactercard"
           className="ccq-logo"
         />
-
-        <div className="ccq-hero-title">
-          <h1>{config.meta.name}</h1>
-          <p className="ccq-role">VA | Kommunikationsmanagement</p>
-          <p className="ccq-remote">REMOTE</p>
-        </div>
-
-        <div className="ccq-hero-contact">
-          <p>(+41) 77 292 73 88</p>
-          <p className="lowercase">stefania.dolak@mail.ch</p>
-        </div>
 
         <button
           type="button"
@@ -122,23 +111,34 @@ export default function Home() {
             </span>
           </span>
         </button>
-        <p className="ccq-flip-hint">Zum Drehen tippen</p>
-      </section>
 
-      {/* NAVIGATION — Arbeit bleibt bewusst ohne eigenen Menüpunkt */}
-      <header className="ccq-nav-wrap sticky top-3 z-50">
-        <nav className="ccq-nav" aria-label="Bereiche">
-          {["PROFIL", "ANGEBOT", "HINTERGRUND", "CHARAKTER", "SPEZIAL", "KONTAKT"].map((item) => (
-            <button
-              key={item}
-              onClick={() => scrollTo(item.toLowerCase())}
-              className="ccq-nav-pill"
-            >
-              {item}
-            </button>
-          ))}
-        </nav>
-      </header>
+        <div className="ccq-hero-title">
+          <h1>{config.meta.name}</h1>
+          <p className="ccq-role">VA | Kommunikationsmanagement</p>
+        </div>
+
+        {/* Arbeit bleibt als Abschnitt erhalten, aber bewusst ohne Menüpunkt. */}
+        <header className="ccq-nav-wrap">
+          <nav className="ccq-nav" aria-label="Bereiche">
+            {["PROFIL", "ANGEBOT", "HINTERGRUND", "CHARAKTER", "SPEZIAL", "KONTAKT"].map((item) => (
+              <button
+                key={item}
+                onClick={() => scrollTo(item.toLowerCase())}
+                className="ccq-nav-pill"
+              >
+                {item}
+              </button>
+            ))}
+          </nav>
+        </header>
+
+        <div className="sr-only">
+          <p>REMOTE</p>
+          <p>(+41) 77 292 73 88</p>
+          <p>stefania.dolak@mail.ch</p>
+          <p>Zum Drehen auf die Visitenkarte tippen</p>
+        </div>
+      </section>
 
       {/* PROFIL */}
       <section id="profil" className="ccq-section-card py-20 px-6">
