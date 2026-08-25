@@ -126,9 +126,11 @@ a:focus-visible {
 .ccq-hero-contact {
   align-self: flex-end;
   margin-top: 74px;
+  color: var(--ccq-dark);
   text-align: left;
+  text-shadow: 0 0 10px rgba(250, 247, 242, 0.98), 0 1px 2px rgba(250, 247, 242, 0.9);
   font-size: clamp(0.69rem, 2vw, 0.82rem);
-  font-weight: 500;
+  font-weight: 600;
   letter-spacing: 0.06em;
   line-height: 1.75;
 }
@@ -406,6 +408,12 @@ a:focus-visible {
 
   .ccq-section-card > div > div:first-child > p:first-child {
     font-size: clamp(2.8rem, 14vw, 4rem) !important;
+  }
+
+  #hintergrund > div > div:first-child > p:first-child {
+    font-size: clamp(2.35rem, 11.5vw, 3.2rem) !important;
+    letter-spacing: -0.035em !important;
+    white-space: nowrap;
   }
 
   .ccq-section-card h2 {
