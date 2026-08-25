@@ -61,12 +61,6 @@ export default function Home() {
       kurz: "Online sichtbar — und zwar richtig.",
       lang: "Deine Webseite ist deine digitale Visitenkarte. Ich analysiere, was funktioniert und was nicht — und wenn nötig, bauen wir sie neu auf. Technisch fundiert, ästhetisch ansprechend und vor allem: so, dass die Besucher verstehen, wer dahinter steht.",
     },
-    {
-      id: "ccq",
-      title: "CharacterCard Anpassung",
-      kurz: "Deine digitale Visitenkarte, einzigartig wie du.",
-      lang: "Eine CharacterCard ist mehr als eine Webseite — sie ist dein digitales Ich. Ich passe Layout, Texte, Farben und Inhalte so an, dass sie wirklich zu dir passen. Mit allem, was dazugehört: QR-Code, Kontaktfunktion, Share-Sheet und dem gewissen Etwas, das dich unverwechselbar macht.",
-    },
   ];
 
   const tools = [
