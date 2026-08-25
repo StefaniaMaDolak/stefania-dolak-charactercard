@@ -19,8 +19,8 @@ export default function Home() {
   const handleShare = async () => {
     try {
       await navigator.share({
-        title: `${config.meta.name} — CCQ Charactercard`,
-        text: "Zum Scannen und Versenden:",
+        title: `${config.meta.name} — Kontakt`,
+        text: "Zum Kontaktieren:",
         url: typeof window !== "undefined" ? window.location.href : "https://stefania-dolak-charactercard.vercel.app",
       });
     } catch {
@@ -443,11 +443,11 @@ export default function Home() {
 
           <p className="text-sm" style={{ color: "var(--ccq-light)" }}>
             <a
-              href="https://stefania-dolak-charactercard.vercel.app"
+              href="mailto:stefania.dolak@mail.ch"
               className="underline underline-offset-4 hover:opacity-100 transition opacity-80"
               style={{ color: "var(--ccq-light)" }}
             >
-              stefania-dolak-charactercard.vercel.app
+              stefania.dolak@mail.ch
             </a>
           </p>
 
@@ -466,14 +466,6 @@ export default function Home() {
             <p>stefania.dolak@mail.ch</p>
             <p>(+41) 77 292 73 88</p>
           </div>
-        </div>
-      </section>
-
-      {/* CCQ WERBUNG */}
-      <section className="py-10 px-6 border-t" style={{ borderColor: "var(--ccq-secondary)" }}>
-        <div className="max-w-2xl mx-auto text-center space-y-2">
-          <p className="text-[11px] tracking-[0.3em] uppercase opacity-40">CCQ / CHARACTERCARD</p>
-          <p className="text-lg italic opacity-70">Deine Karte. Dein Charakter.</p>
         </div>
       </section>
 
