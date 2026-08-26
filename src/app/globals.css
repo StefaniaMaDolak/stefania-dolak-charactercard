@@ -329,6 +329,26 @@ a:focus-visible {
   opacity: 1 !important;
 }
 
+#profil {
+  padding-top: 60px !important;
+}
+
+#profil > div {
+  position: static;
+}
+
+#profil .ccq-section-label {
+  position: absolute;
+  top: -58px;
+  left: 50%;
+  margin: 0;
+  transform: translateX(-50%);
+}
+
+#profil .ccq-section-label + h2 {
+  margin-top: 0 !important;
+}
+
 .ccq-section-card h2 {
   font-family: var(--font-display), Georgia, serif;
   font-size: clamp(1.3rem, 3.4vw, 1.8rem);
@@ -515,20 +535,8 @@ a:focus-visible {
     padding-top: 54px !important;
   }
 
-  #profil > div {
-    position: static;
-  }
-
   #profil .ccq-section-label {
-    position: absolute;
     top: -54px;
-    left: 50%;
-    margin: 0;
-    transform: translateX(-50%);
-  }
-
-  #profil .ccq-section-label + h2 {
-    margin-top: 0 !important;
   }
 
   .ccq-section-label {
