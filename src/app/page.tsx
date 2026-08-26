@@ -120,13 +120,19 @@ export default function Home() {
         {/* Arbeit bleibt als Abschnitt erhalten, aber bewusst ohne Menüpunkt. */}
         <header className="ccq-nav-wrap">
           <nav className="ccq-nav" aria-label="Bereiche">
-            {["PROFIL", "ANGEBOT", "CHARAKTER", "SPEZIAL", "KONTAKT"].map((item) => (
+            {[
+              { label: "PROFIL", target: "profil" },
+              { label: "ANGEBOT", target: "angebot" },
+              { label: "CHARAKTER", target: "charakter" },
+              { label: "PRÄSENT", target: "spezial" },
+              { label: "KONTAKT", target: "kontakt" },
+            ].map((item) => (
               <button
-                key={item}
-                onClick={() => scrollTo(item.toLowerCase())}
+                key={item.target}
+                onClick={() => scrollTo(item.target)}
                 className="ccq-nav-pill"
               >
-                {item}
+                {item.label}
               </button>
             ))}
           </nav>
@@ -253,7 +259,7 @@ export default function Home() {
 
           <a
             href="mailto:stefania.dolak@mail.ch?subject=Termin%20vereinbaren"
-            className="inline-block py-4 px-8 rounded-full text-xs tracking-[0.2em] uppercase border transition-all duration-300 hover:opacity-80"
+            className="ccq-appointment-button inline-flex rounded-full uppercase border transition-all duration-300 hover:opacity-80"
             style={{
               borderColor: "var(--ccq-dark)",
               color: "var(--ccq-dark)",
@@ -385,11 +391,11 @@ export default function Home() {
         </div>
       </section>
 
-      {/* SPEZIAL */}
+      {/* PRÄSENT */}
       <section id="spezial" className="ccq-section-card py-20 px-6">
         <div className="max-w-2xl mx-auto text-center space-y-10">
           <div className="space-y-4">
-            <p className="ccq-section-label text-[11px] tracking-[0.3em] uppercase opacity-40">SPEZIAL</p>
+            <p className="ccq-section-label text-[11px] tracking-[0.3em] uppercase opacity-40">PRÄSENT</p>
           </div>
 
           <p className="text-sm opacity-60">Hier erscheinen bald Downloads, Checklisten und Extras für dich.</p>

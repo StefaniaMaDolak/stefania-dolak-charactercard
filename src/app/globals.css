@@ -409,6 +409,18 @@ a:focus-visible {
   background: rgba(255, 255, 255, 0.62);
 }
 
+#angebot .ccq-appointment-button {
+  box-sizing: border-box;
+  width: min(185px, 100%);
+  min-height: 49px;
+  padding: 6px 12px;
+  align-items: center;
+  justify-content: center;
+  font-size: 10px !important;
+  line-height: 1.35;
+  letter-spacing: 0.12em !important;
+}
+
 /* Hintergrund behält seine zeitliche Vita-Struktur */
 #hintergrund .w-16 {
   font-family: var(--font-display), Georgia, serif;
