@@ -329,6 +329,10 @@ a:focus-visible {
   opacity: 1 !important;
 }
 
+:is(#angebot, #charakter) {
+  overflow: visible !important;
+}
+
 :is(#profil, #angebot, #arbeit, #charakter, #spezial, #kontakt) {
   padding-top: 60px !important;
 }
