@@ -411,14 +411,14 @@ a:focus-visible {
 
 #angebot .ccq-appointment-button {
   box-sizing: border-box;
-  width: min(185px, 100%);
-  min-height: 49px;
-  padding: 6px 12px;
+  width: min(241px, 100%);
+  min-height: 64px;
+  padding: 8px 16px;
   align-items: center;
   justify-content: center;
-  font-size: 10px !important;
+  font-size: 13px !important;
   line-height: 1.35;
-  letter-spacing: 0.12em !important;
+  letter-spacing: 0.156em !important;
 }
 
 /* Hintergrund behält seine zeitliche Vita-Struktur */
