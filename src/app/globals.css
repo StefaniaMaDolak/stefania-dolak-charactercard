@@ -90,7 +90,7 @@ a:focus-visible {
   display: flex;
   width: min(100%, 904px);
   min-height: 1280px;
-  margin: 0 auto 30px;
+  margin: 0 auto 68px;
   padding: 30px 20px 54px;
   flex-direction: column;
   align-items: center;
@@ -473,7 +473,7 @@ a:focus-visible {
 
   .ccq-hero {
     min-height: 800px;
-    margin-bottom: 40px;
+    margin-bottom: 64px;
     padding: 26px 14px 42px;
   }
 
@@ -536,7 +536,7 @@ a:focus-visible {
   }
 
   #profil .ccq-section-label {
-    top: -44px;
+    top: -45px;
   }
 
   .ccq-section-label {
