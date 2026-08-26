@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Cormorant_Garamond, Montserrat } from "next/font/google";
 import "./globals.css";
 
@@ -19,6 +19,12 @@ export const metadata: Metadata = {
   description: "Kundenservice | Verwaltung | Organisation",
 };
 
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
+  viewportFit: "cover",
+};
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -27,6 +33,7 @@ export default function RootLayout({
   return (
     <html lang="de">
       <body className={`${displayFont.variable} ${bodyFont.variable} antialiased`}>
+        <div className="ccq-viewport-background" aria-hidden="true" />
         {children}
       </body>
     </html>
