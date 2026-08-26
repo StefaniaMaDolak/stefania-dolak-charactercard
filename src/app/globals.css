@@ -293,7 +293,7 @@ a:focus-visible {
 .ccq-section-card {
   position: relative;
   width: min(100% - 28px, 720px);
-  margin: 0 auto 34px;
+  margin: 0 auto 80px;
   border: 1px solid rgba(255, 255, 255, 0.62);
   border-radius: 54px;
   background: rgba(250, 247, 242, 0.9) !important;
@@ -329,15 +329,15 @@ a:focus-visible {
   opacity: 1 !important;
 }
 
-#profil {
+:is(#profil, #angebot, #arbeit, #charakter, #spezial, #kontakt) {
   padding-top: 60px !important;
 }
 
-#profil > div {
+:is(#profil, #angebot, #arbeit, #charakter, #spezial, #kontakt) > div {
   position: static;
 }
 
-#profil .ccq-section-label {
+:is(#profil, #angebot, #arbeit, #charakter, #spezial, #kontakt) .ccq-section-label {
   position: absolute;
   top: -52px;
   left: 50%;
@@ -345,8 +345,12 @@ a:focus-visible {
   transform: translateX(-50%);
 }
 
-#profil .ccq-section-label + h2 {
+:is(#profil, #angebot, #arbeit, #charakter, #spezial, #kontakt) .ccq-section-label + h2 {
   margin-top: 0 !important;
+}
+
+#kontakt {
+  margin-bottom: 34px;
 }
 
 .ccq-section-card h2 {
@@ -526,17 +530,21 @@ a:focus-visible {
 
   .ccq-section-card {
     width: calc(100% - 24px);
-    margin-bottom: 40px;
+    margin-bottom: 76px;
     padding: 80px 22px 58px !important;
     border-radius: 42px;
   }
 
-  #profil {
+  :is(#profil, #angebot, #arbeit, #charakter, #spezial, #kontakt) {
     padding-top: 54px !important;
   }
 
-  #profil .ccq-section-label {
+  :is(#profil, #angebot, #arbeit, #charakter, #spezial, #kontakt) .ccq-section-label {
     top: -48px;
+  }
+
+  #kontakt {
+    margin-bottom: 40px;
   }
 
   .ccq-section-label {
