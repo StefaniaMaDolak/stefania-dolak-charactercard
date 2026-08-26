@@ -511,6 +511,26 @@ a:focus-visible {
     border-radius: 42px;
   }
 
+  #profil {
+    padding-top: 54px !important;
+  }
+
+  #profil > div {
+    position: static;
+  }
+
+  #profil .ccq-section-label {
+    position: absolute;
+    top: -54px;
+    left: 50%;
+    margin: 0;
+    transform: translateX(-50%);
+  }
+
+  #profil .ccq-section-label + h2 {
+    margin-top: 0 !important;
+  }
+
   .ccq-section-label {
     min-width: 154px;
     min-height: 44px;
