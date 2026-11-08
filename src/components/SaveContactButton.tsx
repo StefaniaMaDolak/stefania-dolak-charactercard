@@ -7,8 +7,8 @@ VERSION:4.0
 FN:Stefania Dolak
 N:Dolak;Stefania;;;
 ORG:VA für Kommunikationsmanagement
-TEL;TYPE=CELL:+41 79 000 00 00
-EMAIL;TYPE=WORK:stefania.dolak@mail.ch
+TEL;TYPE=CELL:+41 76 405 64 30
+EMAIL;TYPE=WORK:stefaniamadolak@gmail.com
 URL:https://stefania-dolak-charactercard.vercel.app
 NOTE:Erkannt werden fuer das was wirklich zaehlt
 END:VCARD`;

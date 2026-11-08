@@ -55,12 +55,6 @@ export default function Home() {
       kurz: "Struktur schaffen, wo Chaos war.",
       lang: "Ein Projekt, das nicht vorankommt? Oder einen Wandel, den niemand versteht? Ich analysiere die Lage, identifiziere Stolpersteine und entwickele einen klaren Plan — zusammen, damit der Change wirklich ankommt.",
     },
-    {
-      id: "webseite",
-      title: "Webseitenanalyse & -erstellung",
-      kurz: "Online sichtbar — und zwar richtig.",
-      lang: "Deine Webseite ist deine digitale Visitenkarte. Ich analysiere, was funktioniert und was nicht — und wenn nötig, bauen wir sie neu auf. Technisch fundiert, ästhetisch ansprechend und vor allem: so, dass die Besucher verstehen, wer dahinter steht.",
-    },
   ];
 
   const tools = [
@@ -147,8 +141,8 @@ export default function Home() {
 
         <div className="sr-only">
           <p>REMOTE</p>
-          <p>(+41) 77 292 73 88</p>
-          <p>stefania.dolak@mail.ch</p>
+          <p>+41 76 405 64 30</p>
+          <p>stefaniamadolak@gmail.com</p>
           <p>Zum Drehen auf die Visitenkarte tippen</p>
         </div>
       </section>
@@ -258,7 +252,7 @@ export default function Home() {
           </div>
 
           <a
-            href="mailto:stefania.dolak@mail.ch?subject=Termin%20vereinbaren"
+            href="mailto:stefaniamadolak@gmail.com?subject=Termin%20vereinbaren"
             className="ccq-appointment-button inline-flex rounded-full uppercase border transition-all duration-300 hover:opacity-80"
             style={{
               borderColor: "var(--ccq-dark)",
@@ -429,11 +423,23 @@ export default function Home() {
 
           <p className="text-sm" style={{ color: "var(--ccq-light)" }}>
             <a
-              href="mailto:stefania.dolak@mail.ch"
+              href="mailto:stefaniamadolak@gmail.com"
               className="underline underline-offset-4 hover:opacity-100 transition opacity-80"
               style={{ color: "var(--ccq-light)" }}
             >
-              stefania.dolak@mail.ch
+              stefaniamadolak@gmail.com
+            </a>
+          </p>
+
+          <p className="text-sm" style={{ color: "var(--ccq-light)" }}>
+            <a
+              href="https://wa.me/41764056430"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="underline underline-offset-4 hover:opacity-100 transition opacity-80"
+              style={{ color: "var(--ccq-light)" }}
+            >
+              +41 76 405 64 30 · WhatsApp
             </a>
           </p>
 
@@ -449,8 +455,8 @@ export default function Home() {
           </button>
 
           <div className="pt-4 space-y-2 text-sm opacity-60" style={{ color: "var(--ccq-light)" }}>
-            <p>stefania.dolak@mail.ch</p>
-            <p>(+41) 77 292 73 88</p>
+            <p>stefaniamadolak@gmail.com</p>
+            <p>+41 76 405 64 30</p>
           </div>
         </div>
       </section>
