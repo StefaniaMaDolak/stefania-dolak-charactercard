@@ -451,6 +451,123 @@ a:focus-visible {
   backdrop-filter: blur(8px);
 }
 
+/* Fester Kontaktbutton: bleibt beim Scrollen unten rechts erreichbar */
+.ccq-floating-contact {
+  position: fixed;
+  right: max(18px, env(safe-area-inset-right));
+  bottom: max(18px, env(safe-area-inset-bottom));
+  z-index: 80;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 10px;
+}
+
+.ccq-contact-options {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 10px;
+  animation: ccq-contact-menu-in 160ms ease-out both;
+}
+
+.ccq-contact-option {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 9px;
+  min-height: 46px;
+  color: white;
+  text-decoration: none;
+}
+
+.ccq-contact-option-label {
+  padding: 8px 12px;
+  border: 1px solid rgba(255, 255, 255, 0.72);
+  border-radius: 999px;
+  background: rgba(44, 44, 44, 0.92);
+  box-shadow: 0 6px 18px rgba(31, 28, 24, 0.2);
+  color: white;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  backdrop-filter: blur(8px);
+}
+
+.ccq-contact-option svg,
+.ccq-contact-toggle svg {
+  width: 24px;
+  height: 24px;
+  fill: currentColor;
+}
+
+.ccq-contact-option > svg {
+  box-sizing: content-box;
+  width: 24px;
+  height: 24px;
+  padding: 11px;
+  border-radius: 50%;
+  box-shadow: 0 7px 20px rgba(31, 28, 24, 0.24);
+}
+
+.ccq-contact-option-whatsapp > svg {
+  background: #25d366;
+  color: white;
+}
+
+.ccq-contact-option-email > svg {
+  background: var(--ccq-accent);
+  color: var(--ccq-dark);
+}
+
+.ccq-contact-toggle {
+  display: grid;
+  width: 54px;
+  height: 54px;
+  padding: 0;
+  place-items: center;
+  border: 1px solid rgba(255, 255, 255, 0.7);
+  border-radius: 50%;
+  background: var(--ccq-dark);
+  box-shadow: 0 8px 24px rgba(31, 28, 24, 0.32);
+  color: var(--ccq-light);
+  cursor: pointer;
+  transition: transform 160ms ease, box-shadow 160ms ease, background 160ms ease;
+}
+
+.ccq-contact-toggle:hover,
+.ccq-contact-toggle:focus-visible {
+  transform: translateY(-2px);
+  box-shadow: 0 11px 28px rgba(31, 28, 24, 0.38);
+}
+
+.ccq-contact-toggle:focus-visible,
+.ccq-contact-option:focus-visible {
+  outline: 3px solid white;
+  outline-offset: 3px;
+}
+
+@keyframes ccq-contact-menu-in {
+  from {
+    opacity: 0;
+    transform: translateY(8px) scale(0.96);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ccq-contact-options {
+    animation: none;
+  }
+
+  .ccq-contact-toggle {
+    transition: none;
+  }
+}
+
 @media (min-aspect-ratio: 4 / 3) {
   .ccq-viewport-background {
     overflow: hidden;

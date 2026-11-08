@@ -6,6 +6,7 @@ import { useCCQConfig } from "../components/CCQConfigLoader";
 export default function Home() {
   const [isFlipped, setIsFlipped] = useState(false);
   const [openOffer, setOpenOffer] = useState<string | null>(null);
+  const [isContactMenuOpen, setIsContactMenuOpen] = useState(false);
   const { config, loading } = useCCQConfig();
 
   if (loading || !config) {
@@ -460,6 +461,59 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      {/* Immer erreichbare Kontakt-Auswahl */}
+      <div className="ccq-floating-contact">
+        {isContactMenuOpen && (
+          <nav className="ccq-contact-options" aria-label="Kontaktmöglichkeiten">
+            <a
+              href="https://wa.me/41764056430"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="ccq-contact-option ccq-contact-option-whatsapp"
+              aria-label="Per WhatsApp schreiben"
+              title="WhatsApp"
+              onClick={() => setIsContactMenuOpen(false)}
+            >
+              <span className="ccq-contact-option-label">WhatsApp</span>
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M12 2a9.7 9.7 0 0 0-8.4 14.55L2.3 21.7l5.28-1.25A9.7 9.7 0 1 0 12 2Zm0 17.45a7.7 7.7 0 0 1-3.92-1.07l-.38-.23-3.13.74.78-3.04-.25-.4A7.7 7.7 0 1 1 12 19.45Zm4.22-5.77c-.23-.12-1.37-.68-1.58-.75-.21-.08-.36-.12-.52.11-.15.23-.59.75-.72.9-.13.16-.27.18-.5.06-.23-.11-.98-.36-1.86-1.15a7.02 7.02 0 0 1-1.29-1.6c-.13-.23-.01-.35.1-.47.1-.1.23-.27.34-.4.12-.14.16-.24.23-.4.08-.15.04-.29-.02-.4-.06-.12-.52-1.25-.71-1.71-.19-.45-.38-.39-.52-.4h-.44c-.16 0-.4.06-.62.29-.21.23-.81.79-.81 1.93 0 1.13.83 2.23.94 2.38.12.15 1.63 2.49 3.95 3.49.55.24.98.38 1.32.48.55.18 1.06.15 1.45.09.45-.07 1.37-.56 1.56-1.1.19-.53.19-.99.13-1.08-.05-.1-.2-.15-.43-.27Z" />
+              </svg>
+            </a>
+
+            <a
+              href="mailto:stefaniamadolak@gmail.com"
+              className="ccq-contact-option ccq-contact-option-email"
+              aria-label="E-Mail an Stefania Dolak schreiben"
+              title="E-Mail"
+              onClick={() => setIsContactMenuOpen(false)}
+            >
+              <span className="ccq-contact-option-label">E-Mail</span>
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M3.75 5h16.5A1.75 1.75 0 0 1 22 6.75v10.5A1.75 1.75 0 0 1 20.25 19H3.75A1.75 1.75 0 0 1 2 17.25V6.75A1.75 1.75 0 0 1 3.75 5Zm.13 2 8.12 5.6L20.12 7H3.88Zm16.12 9.92V9.2l-7.43 5.12a1 1 0 0 1-1.14 0L4 9.2v7.72c0 .04.04.08.08.08h15.84c.04 0 .08-.04.08-.08Z" />
+              </svg>
+            </a>
+          </nav>
+        )}
+
+        <button
+          type="button"
+          className="ccq-contact-toggle"
+          aria-label={isContactMenuOpen ? "Kontaktmöglichkeiten schließen" : "Kontaktmöglichkeiten öffnen"}
+          aria-expanded={isContactMenuOpen}
+          onClick={() => setIsContactMenuOpen(!isContactMenuOpen)}
+        >
+          {isContactMenuOpen ? (
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path d="m6.7 5.3 12 12-1.4 1.4-12-12 1.4-1.4Zm10.6 0 1.4 1.4-12 12-1.4-1.4 12-12Z" />
+            </svg>
+          ) : (
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M5 3h14a3 3 0 0 1 3 3v8a3 3 0 0 1-3 3h-7.55L6 21.35V17H5a3 3 0 0 1-3-3V6a3 3 0 0 1 3-3Zm0 2a1 1 0 0 0-1 1v8a1 1 0 0 0 1 1h3v2.15L10.75 15H19a1 1 0 0 0 1-1V6a1 1 0 0 0-1-1H5Z" />
+            </svg>
+          )}
+        </button>
+      </div>
 
       {/* FOOTER */}
       <footer className="ccq-footer py-6 px-4 text-center">
